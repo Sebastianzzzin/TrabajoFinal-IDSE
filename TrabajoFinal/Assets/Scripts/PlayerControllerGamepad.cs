@@ -1,122 +1,81 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerControllerGamepad : MonoBehaviour
 {
-    public float velocidad = 8f;
-    public float velocidadSubida = 6f;
+    [Header("Movimiento")]
+    public float moveSpeed = 5f;
+    public float verticalSpeed = 3f;
+    public float threshold = 0.2f;
 
     [Header("Rotación")]
-    public float velocidadGiro = 10f;     // Suavidad del giro
-    public float anguloParaAvanzar = 4f;  // Más tolerancia = sin vibración
+    public float rotationSpeed = 10f;
+    public bool invertirSigno = true;
 
-    Rigidbody rb;
+    [Header("Detección de colisión")]
+    public float collisionCheckDistance = 0.5f;
 
-    Vector2 input;
-    float rotacionYObjetivo;
-    bool tieneObjetivo = false;
-    bool rotacionCompleta = false;
+    private Rigidbody rb;
+    private bool touchingObstacle = false;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        rb.useGravity = false;
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        rb.isKinematic = false; // Por defecto dinámico
     }
 
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        var gamepad = Gamepad.current;
+        if (gamepad == null) return;
 
-        input = new Vector2(x, z);
+        Vector2 stick = gamepad.leftStick.ReadValue();
+        Vector3 moveVector = new Vector3(stick.x, 0f, stick.y);
 
-        // SUBIR / BAJAR
-        if (Input.GetButton("Jump"))
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, velocidadSubida, rb.linearVelocity.z);
-        else if (Input.GetKey(KeyCode.LeftControl))
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, -velocidadSubida, rb.linearVelocity.z);
-        else
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+        // ======= Activar kinematic si está tocando un obstáculo =======
+        rb.isKinematic = touchingObstacle;
 
-        // ROTACIÓN OBJETIVO
-        if (input.magnitude > 0.2f)
+        // ======= Movimiento horizontal =======
+        if (moveVector.magnitude >= threshold)
         {
-            tieneObjetivo = true;
-            rotacionCompleta = false;
+            moveVector.Normalize();
+            Vector3 targetPos = transform.position + moveVector * moveSpeed * Time.deltaTime;
 
-            if (Mathf.Abs(input.y) > Mathf.Abs(input.x))
-            {
-                if (input.y > 0)
-                    rotacionYObjetivo = -180f;
-                else
-                    rotacionYObjetivo = 0f;
-            }
-            else
-            {
-                if (input.x > 0)
-                    rotacionYObjetivo = -90f;
-                else
-                    rotacionYObjetivo = 90f;
-            }
+            transform.position = targetPos;
         }
-        else
+
+        // ======= Subir/Bajar (L1/R1) =======
+        float vertical = 0f;
+        if (gamepad.leftShoulder.isPressed) vertical -= 1f;
+        if (gamepad.rightShoulder.isPressed) vertical += 1f;
+
+        if (vertical != 0f)
         {
-            tieneObjetivo = false;
+            Vector3 verticalMove = new Vector3(0f, vertical * verticalSpeed * Time.deltaTime, 0f);
+            transform.position += verticalMove;
+        }
+
+        // ======= Rotación =======
+        Vector2 vecRot = new Vector2(stick.x, -stick.y);
+        if (vecRot.magnitude >= threshold)
+        {
+            float angle = Mathf.Atan2(vecRot.x, vecRot.y) * Mathf.Rad2Deg;
+            if (invertirSigno) angle = -angle;
+
+            Quaternion targetRotation = Quaternion.Euler(0f, angle, 0f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
 
-    void FixedUpdate()
+    // ======= Detectar colisiones =======
+    void OnCollisionEnter(Collision collision)
     {
-        if (!tieneObjetivo)
-        {
-            rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
-            return;
-        }
+        touchingObstacle = true;
+    }
 
-        Quaternion rotacionObjetivoQuat = Quaternion.Euler(0f, rotacionYObjetivo, 0f);
-
-        // ROTACIÓN SUAVE SIN VIBRACIÓN
-        transform.rotation = Quaternion.Slerp(
-            transform.rotation,
-            rotacionObjetivoQuat,
-            velocidadGiro * Time.fixedDeltaTime
-        );
-
-        float anguloRestante = Quaternion.Angle(transform.rotation, rotacionObjetivoQuat);
-
-        if (anguloRestante <= anguloParaAvanzar)
-        {
-            rotacionCompleta = true;
-        }
-
-        if (rotacionCompleta)
-        {
-            // MOVIMIENTO POR MAPA
-            Vector3 movimiento = new Vector3(
-                input.x * velocidad,
-                rb.linearVelocity.y,
-                input.y * velocidad
-            );
-
-            rb.linearVelocity = movimiento;
-        }
-        else
-        {
-            // Mientras gira → congelado XZ
-            rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
-        }
+    void OnCollisionExit(Collision collision)
+    {
+        touchingObstacle = false;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
