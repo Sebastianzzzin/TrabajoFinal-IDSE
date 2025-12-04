@@ -1,71 +1,48 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform jugador;        // Goku
-    public Transform puntoNariz;     // Objeto en la nariz
+    public Transform jugador;
 
-    [Header("Modo Top Down FIFA")]
+    [Header("Top Down")]
     public Vector3 offsetTopDown = new Vector3(0, 15f, -8f);
     public Vector3 rotacionTopDown = new Vector3(60f, 0f, 0f);
 
     [Header("Suavizado")]
     public float suavizado = 8f;
 
-    private bool primeraPersona = false;
+    private Gamepad gamepad;
 
     void Start()
     {
-        ActivarTopDown();
+        // Rotación fija top-down
+        transform.rotation = Quaternion.Euler(rotacionTopDown);
     }
 
     void Update()
     {
-        // Cambiar c�mara con F5 o bot�n del mando (Start)
-        if (Input.GetKeyDown(KeyCode.F5) || Input.GetButtonDown("Submit"))
-        {
-            primeraPersona = !primeraPersona;
+        gamepad = Gamepad.current;
+        if (gamepad == null) return;
 
-            if (primeraPersona)
-                ActivarPrimeraPersona();
-            else
-                ActivarTopDown();
-        }
+        // (Antes el joystick derecho se usaba aquí, ahora no hace nada)
+        // Lo dejamos vacío para evitar cualquier bug.
     }
 
     void LateUpdate()
     {
         if (jugador == null) return;
 
-        if (!primeraPersona)
-        {
-            Vector3 posicionDeseada = new Vector3(
-                jugador.position.x + offsetTopDown.x,
-                offsetTopDown.y,
-                jugador.position.z + offsetTopDown.z
-            );
+        // Movimiento suave hacia el offset
+        Vector3 objetivo = jugador.position + offsetTopDown;
 
-            transform.position = Vector3.Lerp(transform.position, posicionDeseada, suavizado * Time.deltaTime);
-        }
-        else
-        {
-            // PRIMERA PERSONA desde la NARIZ
-            transform.position = puntoNariz.position;
-            transform.rotation = puntoNariz.rotation;
-        }
-    }
+        transform.position = Vector3.Lerp(
+            transform.position,
+            objetivo,
+            suavizado * Time.deltaTime
+        );
 
-    void ActivarTopDown()
-    {
+        // Mantiene la cámara mirando hacia abajo
         transform.rotation = Quaternion.Euler(rotacionTopDown);
-    }
-
-    void ActivarPrimeraPersona()
-    {
-        if (puntoNariz != null)
-        {
-            transform.position = puntoNariz.position;
-            transform.rotation = puntoNariz.rotation;
-        }
     }
 }

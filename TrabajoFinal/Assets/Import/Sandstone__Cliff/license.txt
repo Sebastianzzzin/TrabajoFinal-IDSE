@@ -1,0 +1,11 @@
+Model Information:
+* title:	Sandstone | Cliff
+* source:	https://sketchfab.com/3d-models/sandstone-cliff-67f00d0a43774facb032113283d5b4c3
+* author:	YadroGames (https://sketchfab.com/erroratten)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Sandstone | Cliff" (https://sketchfab.com/3d-models/sandstone-cliff-67f00d0a43774facb032113283d5b4c3) by YadroGames (https://sketchfab.com/erroratten) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
