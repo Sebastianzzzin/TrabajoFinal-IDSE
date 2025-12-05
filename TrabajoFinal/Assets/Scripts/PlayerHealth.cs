@@ -20,14 +20,14 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            RecibirDaño(20);
-            Debug.Log("Jugador ha recibido daño por colisión con obstáculo.");
+            RecibirDano(20);
+            Debug.Log("Jugador ha recibido dano por colision con obstulo.");
         }
     }
 
-    void RecibirDaño(int daño)
+    void RecibirDano(int dano)
     {
-        vidaActual -= daño;
+        vidaActual -= dano;
 
         if (vidaActual < 0)
             vidaActual = 0;
