@@ -4,21 +4,23 @@ using TMPro;
 
 public class HUDController : MonoBehaviour
 {
-    [Header("--- REFERENCIAS UI ---")]
-    public Image healthBarFill;       // Barra Verde
-    public Image turboBarFill;        // Barra Azul (Turbo)
-    public TextMeshProUGUI livesText; // Texto Vidas
-    public GameObject portraitGoku;   // La cara de Goku (Opcional, para animarla si quieres)
+    [Header("--- BARRAS PRINCIPALES ---")]
+    public Image healthBarFill;       
+    public Image turboBarFill;        
+    public GameObject portraitGoku;   
 
-    [Header("--- COMBUSTIBLE (Sistema de Capas) ---")]
-    public GameObject[] fuelSlots;    // Arrastra los padres (Slot_Fondo)
-    // El script buscará automáticamente dentro: 
-    // Hijo 0: Fondo Gris, Hijo 1: Amarillo, Hijo 2: Celeste
+    [Header("--- COMBUSTIBLE (KI) ---")]
+    public GameObject[] fuelSlots;    // Los 5 slots de siempre
 
-    [Header("--- ESFERAS DEL DRAGON ---")]
-    public Image[] dragonBallSlots;   // Los huecos grises en la UI
-    public Sprite[] dragonBallSprites;// Tus 7 PNGs de las esferas
+    [Header("--- CARGAS DE TURBO (Flechas Verdes) ---")]
+    // Arrastra aquí tus objetos "Slot", "Slot (1)", etc. de Turbo Charges
+    public GameObject[] turboChargeIcons; 
 
+    [Header("--- IMÁGENES DE VIDAS ---")]
+    // Arrastra aquí tus objetos "1", "2", "3" que están dentro de VidasPanel
+    public GameObject[] vidaImages; 
+
+    // --- ACTUALIZAR BARRAS (Igual que antes) ---
     public void ActualizarVida(int actual, int maximo)
     {
         float porcentaje = (float)actual / maximo;
@@ -30,30 +32,14 @@ public class HUDController : MonoBehaviour
         turboBarFill.fillAmount = actual / maximo;
     }
 
-    public void ActualizarVidas(int vidas)
+    // --- NUEVO: SISTEMA DE COMBUSTIBLE GLOBAL (Celeste/Amarillo) ---
+    public void ActualizarCombustible(float valorActual, float valorMaximo)
     {
-        livesText.text = "" + vidas.ToString();
-    }
-
- public void ActualizarCombustible(float valorActual, float valorMaximo)
-    {
-        // 1. Calculamos los porcentajes globales de cada color
-        // El amarillo representa la PRIMERA mitad del tanque (0% a 50%)
-        // El celeste representa la SEGUNDA mitad del tanque (50% a 100%)
-        
         float mitadTanque = valorMaximo / 2f;
-
-        // Cálculo Amarillo: Llenamos de 0 a mitadTanque.
-        // Si valorActual > mitadTanque, esto dará > 1 (que Clamp01 recorta a 1, o sea lleno)
         float porcentajeGlobalAmarillo = Mathf.Clamp01(valorActual / mitadTanque);
-
-        // Cálculo Celeste: Llenamos solo lo que sobrepase la mitad.
         float porcentajeGlobalCeleste = Mathf.Clamp01((valorActual - mitadTanque) / mitadTanque);
 
-        // 2. Distribuimos ese porcentaje entre las barritas individuales
         int totalBarras = fuelSlots.Length;
-        
-        // Cuánto porcentaje del total representa una sola barrita (ej: 5 barras = 0.2 cada una)
         float pasoPorBarra = 1f / totalBarras; 
 
         for (int i = 0; i < totalBarras; i++)
@@ -61,32 +47,55 @@ public class HUDController : MonoBehaviour
             Image[] capas = fuelSlots[i].GetComponentsInChildren<Image>();
             if (capas.Length < 3) continue;
 
-            Image capaAmarilla = capas[1];
-            Image capaCeleste = capas[2];
-
-            // --- MATEMÁTICA DE DISTRIBUCIÓN ---
-            // Queremos saber cuánto de este bloque 'i' debe llenarse basado en el global.
-            // Fórmula: (Global - InicioDelBloque) / TamañoDelBloque
+            float inicioBarra = i * pasoPorBarra;
             
-            float inicioBarra = i * pasoPorBarra; // ej: 0, 0.2, 0.4...
-
-            // Llenado AMARILLO para esta barra
+            // Amarillo
             float llenadoAmarillo = (porcentajeGlobalAmarillo - inicioBarra) / pasoPorBarra;
-            capaAmarilla.fillAmount = Mathf.Clamp01(llenadoAmarillo);
+            capas[1].fillAmount = Mathf.Clamp01(llenadoAmarillo);
 
-            // Llenado CELESTE para esta barra
+            // Celeste
             float llenadoCeleste = (porcentajeGlobalCeleste - inicioBarra) / pasoPorBarra;
-            capaCeleste.fillAmount = Mathf.Clamp01(llenadoCeleste);
+            capas[2].fillAmount = Mathf.Clamp01(llenadoCeleste);
         }
     }
 
-    public void RecolectarEsfera(int numeroEsfera)
+    // --- NUEVO: ACTUALIZAR CARGAS DE TURBO (Flechas) ---
+    public void ActualizarCargasTurbo(int cantidadActual)
     {
-        int index = numeroEsfera - 1; // Array empieza en 0
-        if (index >= 0 && index < dragonBallSlots.Length)
+        // Recorremos todas las flechas
+        for (int i = 0; i < turboChargeIcons.Length; i++)
         {
-            dragonBallSlots[index].sprite = dragonBallSprites[index];
-            dragonBallSlots[index].color = Color.white; // Quitar el gris
+            // Si el índice es menor que la cantidad que tenemos, se enciende.
+            // Ejemplo: Tengo 3 cargas. i=0(On), i=1(On), i=2(On), i=3(Off)...
+            if (i < cantidadActual)
+            {
+                turboChargeIcons[i].SetActive(true);
+            }
+            else
+            {
+                turboChargeIcons[i].SetActive(false);
+            }
+        }
+    }
+
+    // --- NUEVO: ACTUALIZAR IMÁGENES DE VIDAS ---
+    public void ActualizarImagenVidas(int vidasRestantes)
+    {
+        // Primero apagamos TODAS las imágenes (1, 2 y 3)
+        foreach (GameObject img in vidaImages)
+        {
+            img.SetActive(false);
+        }
+
+        // Ahora encendemos solo la que corresponde
+        // Asumimos que en el array: Element 0 = Imagen "1", Element 1 = Imagen "2", Element 2 = Imagen "3"
+        // Como vidasRestantes es 1, 2 o 3, restamos 1 para obtener el índice.
+        
+        int index = vidasRestantes - 1;
+
+        if (index >= 0 && index < vidaImages.Length)
+        {
+            vidaImages[index].SetActive(true);
         }
     }
 }

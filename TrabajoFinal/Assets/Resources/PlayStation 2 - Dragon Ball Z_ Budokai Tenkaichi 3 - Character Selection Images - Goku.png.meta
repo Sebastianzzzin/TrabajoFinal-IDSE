@@ -1,0 +1,2165 @@
+fileFormatVersion: 2
+guid: 8d0a6f240ba19c742864b6f9eb7774f6
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2256
+        width: 284
+        height: 524
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54823ec7024c13a47975d499e4f796b1
+      internalID: 1333283388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2779
+        width: 38
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc9b89dffb807294aa833f77069a11ce
+      internalID: 1203282226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_2
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 2779
+        width: 40
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fbff0e7535c684469261c3e4e985bb6
+      internalID: -798308337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_3
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 2779
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9d708f1ba5b6c4f8ca0cc7716ce8bc
+      internalID: 31001039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2222
+        width: 38
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e3daf25c742d144faf160a4081e4170
+      internalID: 455688301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_5
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 2222
+        width: 30
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac21f60fcea4044489e5c38824bbd736
+      internalID: 80396212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_6
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 2222
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89239b3174c1ab844a3eae51d023a395
+      internalID: 1989756518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_7
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 2221
+        width: 43
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a88f76ca4bc11994b973f04bf697db4c
+      internalID: 360992654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_8
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 2220
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ecf90dd25a5b6d49bda7a948e529c55
+      internalID: -1642515950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_9
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 2221
+        width: 36
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9816b12c78c7c41a0ff63109d1bba6
+      internalID: -1889952717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_10
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 2221
+        width: 38
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bfc25bb387d7eb418f46d5f19a5aeaf
+      internalID: -2078437936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_11
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 2221
+        width: 40
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09dcc5089334aa44dbe51b3b7ca6a08f
+      internalID: -20205937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_12
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 2220
+        width: 25
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69a683b7be987da49bbbd02f32411734
+      internalID: -1488902901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_14
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 2208
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d60c64ac1eb00fb44aff43de5454c432
+      internalID: 673900601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_15
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 2200
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93338e1fee71b784881e62c48eea4b61
+      internalID: 1733389875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_17
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1992
+        width: 4
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bb23f4b5096bbd4eb3746d50755471f
+      internalID: 1180609310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_18
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1772
+        width: 4
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0d9714addb809c48b862362919465cb
+      internalID: -1223345099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_19
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1736
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e2c4f13b0e9bc45983e1e22c28b1ca
+      internalID: -1613914925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_20
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1638
+        width: 38
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a44fc7a46b212e4db507a78529f5a0a
+      internalID: -1107466008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_21
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 1638
+        width: 43
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d6924afcce0e814e9f0bbc12350a6e9
+      internalID: 300436245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_22
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 1638
+        width: 43
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc44868f120a6be479ce491326acb86b
+      internalID: -9170773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_23
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 1638
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 103e3a7592d11c54eac6188b1aaec024
+      internalID: 1885036563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_24
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 1638
+        width: 36
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f6e9eaa2c676c14897f80056db0e21e
+      internalID: -1320967389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_25
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 1638
+        width: 38
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d745600b8feb81547b3c4110058b06ae
+      internalID: 1522340738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_26
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 1638
+        width: 34
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f553a8372f2adf24293c0e6396c679b1
+      internalID: -1926063654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_27
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 1638
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cc83d88cf7dabc40933fa18319c2142
+      internalID: 1200473498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_29
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 1638
+        width: 43
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69e9c8ef366cd1a44be1cec0ead8534a
+      internalID: 706553895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_30
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 1639
+        width: 43
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 050ad74d4fd89d74bbade6ed24f31356
+      internalID: -1374329951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_31
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 1639
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c49dfcd613a16cb4a9e705d7321fb9bf
+      internalID: -1959761068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_32
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 1639
+        width: 36
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 962ebb40bd40dbc478fab67aa1a03180
+      internalID: 795529191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_33
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 1639
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a922f5fb626fa1b498e405e55509867a
+      internalID: -100092452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_34
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 1639
+        width: 38
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09fba2c813556dd4592fb94d9ff8ea46
+      internalID: 35383393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_35
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 1639
+        width: 34
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac69d3082dc0c9741bfde800719a4d2b
+      internalID: 216768762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_36
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 1568
+        width: 88
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd17df803f670664d9ba943b859243ec
+      internalID: 568799150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_37
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 1639
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8f501b3bd2fc784d9e0839006b63a00
+      internalID: 1260550488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_42
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 1172
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4609533e6619c27449469343331caf0d
+      internalID: -1074094347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_43
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1108
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 328f127fa986b2c42b232953815ec3fe
+      internalID: -1091868137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_44
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 1088
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69958e984cda7e84bbea931e5c162f6d
+      internalID: -1013481136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_45
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 1084
+        width: 12
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc3453b48cf5afc4d84d72edffcd20b9
+      internalID: 171176458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_46
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1108
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34546efc625012640899728e9e7d754b
+      internalID: -1246146304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_47
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 1088
+        width: 38
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9156973e4ca626419105c9f5f2fa4b3
+      internalID: 532756524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_48
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1088
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62a50461e146d7d46bcb245977f3616d
+      internalID: -1377357639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_49
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 1088
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a0f728a5a02af5419776e509dd9cd86
+      internalID: -1352831515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_51
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 1088
+        width: 43
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de590ca92c8029c4c8ca9ef521b662fd
+      internalID: 160904565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_52
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 1088
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 022b18078df274e4689fa935474ef195
+      internalID: -423234446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_53
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1088
+        width: 36
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6cffec7d31edfb4eb535812d74a18eb
+      internalID: -1292919943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_54
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 1084
+        width: 42
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54a45cae3e847a94a8a4988ef7bf1656
+      internalID: -206381489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_55
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 1088
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38114161927bcc14db4a4e72a6b3102b
+      internalID: 2093389413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_56
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 1084
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb9f7ae45baa844daccb803a009b062
+      internalID: 1188448446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_57
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 1088
+        width: 43
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6adbe15522bbf9743a9bf6e99db398f2
+      internalID: -1696720854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_58
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 1088
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3663d7b015e985947bb55fcab0fdc441
+      internalID: 2041323230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_59
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1088
+        width: 36
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7b993a5c4b133847a592aa530fe18a7
+      internalID: -1987634809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_60
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 1088
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff0d0454b4f23ec4f8393f94ec745141
+      internalID: -651289563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_61
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 1088
+        width: 38
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b05ee157ab9d9d4b9d4106bd8b3eddf
+      internalID: 2025580747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_62
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 1088
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 531f2432c52db3243857840e864c17f7
+      internalID: 774587754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_63
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 1088
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d64feaa80e863c446bf794c26d5cc728
+      internalID: -1610672943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_64
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 1092
+        width: 31
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 171cf44d472367c4fa0358f03ddddf56
+      internalID: -123370495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_65
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 1088
+        width: 43
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94e9044a0a6906b43be840844722aef3
+      internalID: 2051321678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_67
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1048
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5173f935280d69045be92e480524abdc
+      internalID: -1751743350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_68
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 1008
+        width: 74
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eb14e96f53446f479159f025644e8d0
+      internalID: -1924176207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_69
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 1056
+        width: 4
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d7c4b44efd08e840acfae9618018336
+      internalID: -1150455489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_70
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 540
+        width: 280
+        height: 547
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c01029dea221704ebae9f52f46438b7
+      internalID: 509360524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_71
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 1011
+        width: 48
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 233669268f4a3f042a7c089022e49311
+      internalID: 176476778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_72
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1030
+        width: 32
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc87634cf5091ea4989b338e36a7be05
+      internalID: 825502438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_73
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 980
+        width: 92
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5fbf8b0bd3e78945b6d933eabf86d3e
+      internalID: -2044420806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_74
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 865
+        width: 64
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57dd44fb3023aaa4fb099b8c0809403a
+      internalID: -2110094863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_75
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 908
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ca9fed9aea5b864699d399b9e59cf50
+      internalID: 950790368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_76
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 561
+        width: 275
+        height: 468
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d6210f5cd65c234688cfa7484cbae4c
+      internalID: 176602020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_77
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 832
+        width: 13
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f3c7afe1ca15242b6bca14325191d8
+      internalID: 708811937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_78
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 553
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f7085969fbcb514780bb300b3433340
+      internalID: -471574249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_79
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 552
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c6da130b7b1bc34fa2bd51278640104
+      internalID: -1017500414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_80
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 552
+        width: 41
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bc4201cc24832146a28c4a5b22d9ed2
+      internalID: -1152415698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_81
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 530
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90ea2d4d076943a47bae8378da55b857
+      internalID: -169370669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_82
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 532
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dd92fb20143ede41bb8cfaf6ea4c060
+      internalID: 26441296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_83
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 553
+        width: 41
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeaced6b4df169b4fa11b97b92cabe3c
+      internalID: 1575417204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_84
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 553
+        width: 25
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85c36f8de8084d64b962187d0b5a5b17
+      internalID: -171181167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_85
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 540
+        width: 9
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf2fb13f21428e241ab3e3d8eaada9f6
+      internalID: 465050517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_86
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 544
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f8cd04b9502b6747a65d39f3781d243
+      internalID: -1375588779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_87
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 540
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1771ef16b91f22429726b9f5d13e053
+      internalID: -2110193323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_88
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 540
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2a5be1e12adba9498f6efb12bb63afd
+      internalID: 861214888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_89
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 16
+        width: 250
+        height: 514
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4044520677421e4ca6ac4402f6488f7
+      internalID: 564684356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_90
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 18
+        width: 276
+        height: 506
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c5bfaaa51391e245a0ab0b65bc56d62
+      internalID: -102020798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_91
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 504
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40a63ffbcb1663a438f253d93e15b16c
+      internalID: 2044279820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_92
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 489
+        width: 48
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c82852007590d6248aa1c37c05e25f13
+      internalID: 576380011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection
+        Images - Goku_13
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 2144
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68c1c008d0d5d349a9bb15196e1da91
+      internalID: -528648429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3be7be9700c21dc4fb6a0976b20f210c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_0: 1333283388
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_1: 1203282226
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_10: -2078437936
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_11: -20205937
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_12: -1488902901
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_13: -528648429
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_14: 673900601
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_15: 1733389875
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_16: 1006878806
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_17: 1180609310
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_18: -1223345099
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_19: -1613914925
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_2: -798308337
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_20: -1107466008
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_21: 300436245
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_22: -9170773
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_23: 1885036563
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_24: -1320967389
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_25: 1522340738
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_26: -1926063654
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_27: 1200473498
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_28: -1081327466
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_29: 706553895
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_3: 31001039
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_30: -1374329951
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_31: -1959761068
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_32: 795529191
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_33: -100092452
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_34: 35383393
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_35: 216768762
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_36: 568799150
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_37: 1260550488
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_38: 956422631
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_39: 1784186065
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_4: 455688301
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_40: -693860749
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_41: 423791131
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_42: -1074094347
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_43: -1091868137
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_44: -1013481136
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_45: 171176458
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_46: -1246146304
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_47: 532756524
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_48: -1377357639
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_49: -1352831515
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_5: 80396212
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_50: 449304366
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_51: 160904565
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_52: -423234446
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_53: -1292919943
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_54: -206381489
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_55: 2093389413
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_56: 1188448446
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_57: -1696720854
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_58: 2041323230
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_59: -1987634809
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_6: 1989756518
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_60: -651289563
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_61: 2025580747
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_62: 774587754
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_63: -1610672943
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_64: -123370495
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_65: 2051321678
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_66: 1235427670
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_67: -1751743350
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_68: -1924176207
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_69: -1150455489
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_7: 360992654
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_70: 509360524
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_71: 176476778
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_72: 825502438
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_73: -2044420806
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_74: -2110094863
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_75: 950790368
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_76: 176602020
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_77: 708811937
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_78: -471574249
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_79: -1017500414
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_8: -1642515950
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_80: -1152415698
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_81: -169370669
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_82: 26441296
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_83: 1575417204
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_84: -171181167
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_85: 465050517
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_86: -1375588779
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_87: -2110193323
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_88: 861214888
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_89: 564684356
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_9: -1889952717
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_90: -102020798
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_91: 2044279820
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Character Selection Images - Goku_92: 576380011
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

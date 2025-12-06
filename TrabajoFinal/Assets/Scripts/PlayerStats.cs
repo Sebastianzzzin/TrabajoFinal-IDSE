@@ -1,22 +1,26 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections; // Necesario para la Corrutina (IEnumerator)
+using System.Collections;
 
 public class PlayerStats : MonoBehaviour
 {
     [Header("--- ESTADÍSTICAS ---")]
     public int vidaMaxima = 100;
     public float combustibleMaximo = 100f;
-    public float turboMaximo = 100f;
+    public float turboMaximo = 100f; // Tamaño de la barra azul
     public int vidasIniciales = 3;
 
-    [Header("--- DAÑO E INMUNIDAD ---")]
-    public float tiempoInmunidad = 1f; // Tiempo que eres invencible tras un golpe
-    private bool esInmune = false;     // Interruptor interno
+    [Header("--- SISTEMA DE CARGAS TURBO ---")]
+    public int cargasTurboMaximas = 5; // Cuántas flechas verdes tienes
+    private int cargasTurboActuales;
 
     [Header("--- CONSUMO ---")]
     public float gastoCombustibleAlMover = 5f;
-    public float recuperacionTurbo = 10f;
+    // Eliminada la recuperación pasiva de turbo, ahora es por cargas
+
+    [Header("--- DAÑO ---")]
+    public float tiempoInmunidad = 1f;
+    private bool esInmune = false;
 
     // Variables Internas
     private int vidaActual;
@@ -24,150 +28,67 @@ public class PlayerStats : MonoBehaviour
     private float turboActual;
     private int vidasRestantes;
 
-    // Referencia al HUD
     public HUDController hud; 
 
     void Start()
     {
-        // 1. Cargar Vidas o usar iniciales
+        // 1. Cargar Vidas
         if (PlayerPrefs.HasKey("VidasJugador"))
-        {
             vidasRestantes = PlayerPrefs.GetInt("VidasJugador");
-        }
         else
-        {
             vidasRestantes = vidasIniciales;
             PlayerPrefs.SetInt("VidasJugador", vidasRestantes);
-        }
 
-        // 2. Llenar tanques
+        // 2. Inicializar Stats
         vidaActual = vidaMaxima;
         combustibleActual = combustibleMaximo;
         turboActual = turboMaximo;
+        
+        // Empezamos con todas las flechas verdes
+        cargasTurboActuales = cargasTurboMaximas;
 
-        // 3. Actualizar la pantalla
+        // 3. Actualizar HUD
         ActualizarTodoElHUD();
     }
 
-    void Update()
+    // --- LÓGICA DE TURBO (MODIFICADA) ---
+    public bool IntentarUsarTurbo(float cantidadGasto)
     {
-        // Recargar Turbo pasivamente
-        if (turboActual < turboMaximo)
+        // 1. Si tenemos barra azul, la gastamos
+        if (turboActual > 0)
         {
-            turboActual += recuperacionTurbo * Time.deltaTime;
+            turboActual -= cantidadGasto * Time.deltaTime;
             hud.ActualizarTurbo(turboActual, turboMaximo);
+            return true; // Estamos usando turbo
         }
-    }
-
-    // ============================================================
-    // =======      LOGICA DE COLISIONES (NUEVA)            =======
-    // ============================================================
-
-    // 1. Si chocamos contra algo SÓLIDO (Collision)
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            RecibirDano(20);
-            Debug.Log("Golpe con Obstáculo Sólido");
-        }
-    }
-
-    // 2. Si atravesamos algo TRANSPARENTE (Trigger)
-    void OnTriggerEnter(Collider other)
-    {
-        // Daño por trampas o zonas de peligro
-        if (other.CompareTag("Obstacle"))
-        {
-            RecibirDano(20);
-            Debug.Log("Golpe con Obstáculo Trigger");
-        }
-
-        // Recoger Esferas del Dragón
-        if (other.CompareTag("EsferaDragon"))
-        {
-            // Intentamos buscar un componente que nos diga qué número es
-            // Si no tienes script en la esfera, puedes usar el nombre del objeto
-            // Ejemplo: si el objeto se llama "Esfera_4", extraemos el 4.
-            
-            // Para este ejemplo, destruimos el objeto y damos una esfera aleatoria o fija
-            // Lo ideal es que tu esfera tenga un script "ItemEsfera" con public int numero = 4;
-            
-            // Simulación:
-            Debug.Log("Esfera recogida!");
-            Destroy(other.gameObject);
-            
-            // hud.RecolectarEsfera(numero); <--- Descomenta esto cuando tengas el script en la esfera
-        }
-    }
-
-    // ============================================================
-    // =======        SISTEMA DE DAÑO E INMUNIDAD           =======
-    // ============================================================
-
-    public void RecibirDano(int dano)
-    {
-        // Si estamos en inmunidad, ignoramos el daño
-        if (esInmune) return;
-
-        vidaActual -= dano;
-        
-        // Evitar números negativos
-        if (vidaActual < 0) vidaActual = 0;
-
-        // Actualizar barra verde
-        hud.ActualizarVida(vidaActual, vidaMaxima);
-
-        if (vidaActual <= 0)
-        {
-            ManejarMuerte();
-        }
+        // 2. Si la barra azul llegó a 0... ¡RECARGA AUTOMÁTICA!
         else
         {
-            // Si seguimos vivos, activamos la inmunidad temporal
-            StartCoroutine(RutinaInmunidad());
+            if (cargasTurboActuales > 0)
+            {
+                // Gastamos una flecha verde
+                cargasTurboActuales--;
+                
+                // Rellenamos la barra azul a tope
+                turboActual = turboMaximo;
+                
+                // Actualizamos HUD (Barra llena y una flecha menos)
+                hud.ActualizarCargasTurbo(cargasTurboActuales);
+                hud.ActualizarTurbo(turboActual, turboMaximo);
+                
+                return true; // Seguimos usando turbo gracias a la recarga
+            }
+            else
+            {
+                // No queda barra azul NI cargas verdes. Se acabó.
+                turboActual = 0;
+                hud.ActualizarTurbo(0, turboMaximo);
+                return false;
+            }
         }
     }
 
-    IEnumerator RutinaInmunidad()
-    {
-        esInmune = true;
-        
-        // Opcional: Aquí podrías hacer parpadear al personaje
-        // GetComponent<MeshRenderer>().enabled = false; ... etc
-        
-        yield return new WaitForSeconds(tiempoInmunidad);
-        
-        esInmune = false;
-    }
-
-    // ============================================================
-    // =======             MUERTE Y VIDAS                   =======
-    // ============================================================
-
-    void ManejarMuerte()
-    {
-        vidasRestantes--;
-        PlayerPrefs.SetInt("VidasJugador", vidasRestantes);
-        hud.ActualizarVidas(vidasRestantes);
-
-        if (vidasRestantes > 0)
-        {
-            // Reiniciar Nivel (Mantiene inventario de PlayerPrefs si lo hubiera)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-        else
-        {
-            Debug.Log("GAME OVER - Fin de la partida");
-            // Borramos el guardado para empezar de 0 la próxima vez
-            PlayerPrefs.DeleteKey("VidasJugador");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
-        }
-    }
-
-    // ============================================================
-    // =======       SISTEMA DE COMBUSTIBLE Y TURBO         =======
-    // ============================================================
+    // --- RESTO DEL CÓDIGO (Combustible, Daño, Muerte) ---
 
     public bool IntentarGastarCombustible(float cantidad)
     {
@@ -175,22 +96,74 @@ public class PlayerStats : MonoBehaviour
         {
             combustibleActual -= cantidad * Time.deltaTime;
             if (combustibleActual < 0) combustibleActual = 0;
-            
             hud.ActualizarCombustible(combustibleActual, combustibleMaximo);
             return true;
         }
         return false;
     }
 
-    public bool IntentarUsarTurbo(float cantidad)
+    void OnCollisionEnter(Collision collision)
     {
-        if (turboActual > 0)
+        if (collision.gameObject.CompareTag("Obstacle")) RecibirDano(20);
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Obstacle")) RecibirDano(20);
+        
+        // PODRÍAS PONER ITEMS PARA RECUPERAR CARGAS TURBO
+        if (other.CompareTag("ItemTurbo")) 
         {
-            turboActual -= cantidad * Time.deltaTime;
-            hud.ActualizarTurbo(turboActual, turboMaximo);
-            return true;
+            RecuperarCargaTurbo();
+            Destroy(other.gameObject);
         }
-        return false;
+    }
+
+    public void RecibirDano(int dano)
+    {
+        if (esInmune) return;
+        vidaActual -= dano;
+        if (vidaActual < 0) vidaActual = 0;
+        hud.ActualizarVida(vidaActual, vidaMaxima);
+
+        if (vidaActual <= 0) ManejarMuerte();
+        else StartCoroutine(RutinaInmunidad());
+    }
+
+    IEnumerator RutinaInmunidad()
+    {
+        esInmune = true;
+        yield return new WaitForSeconds(tiempoInmunidad);
+        esInmune = false;
+    }
+
+    void ManejarMuerte()
+    {
+        vidasRestantes--;
+        PlayerPrefs.SetInt("VidasJugador", vidasRestantes);
+        
+        // Actualizar la imagen de vidas antes de reiniciar
+        hud.ActualizarImagenVidas(vidasRestantes);
+
+        if (vidasRestantes > 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            Debug.Log("GAME OVER");
+            PlayerPrefs.DeleteKey("VidasJugador");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+        }
+    }
+
+    // Función extra por si quieres poner items que te den cargas
+    public void RecuperarCargaTurbo()
+    {
+        if (cargasTurboActuales < cargasTurboMaximas)
+        {
+            cargasTurboActuales++;
+            hud.ActualizarCargasTurbo(cargasTurboActuales);
+        }
     }
 
     void ActualizarTodoElHUD()
@@ -199,6 +172,9 @@ public class PlayerStats : MonoBehaviour
         hud.ActualizarVida(vidaActual, vidaMaxima);
         hud.ActualizarCombustible(combustibleActual, combustibleMaximo);
         hud.ActualizarTurbo(turboActual, turboMaximo);
-        hud.ActualizarVidas(vidasRestantes);
+        
+        // Nuevas actualizaciones
+        hud.ActualizarCargasTurbo(cargasTurboActuales);
+        hud.ActualizarImagenVidas(vidasRestantes);
     }
 }
