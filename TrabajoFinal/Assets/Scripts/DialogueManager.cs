@@ -1,29 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;                
-using UnityEngine.InputSystem; 
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager Instance; 
+    public static DialogueManager Instance;
 
-    [Header("--- CONTENEDORES (Arrastra aquí tus objetos) ---")]
-    public GameObject messageContainer; // El objeto padre que tiene TODO el chat
-    public GameObject interactionPrompt; // La imagen del Triángulo en la esquina
-    
-    [Header("--- ELEMENTOS INTERNOS DEL CHAT ---")]
-    public TextMeshProUGUI nameText;    // El texto del nombre
-    public TextMeshProUGUI chatText;    // El texto del dialogo
-    public Image faceImage;             // La imagen de la cara
+    [Header("--- CONTENEDORES ---")]
+    public GameObject messageContainer;
+    public GameObject interactionPrompt;
 
-    // Variables de control
-    private bool isPlayerInRange = false;
-    private bool isDialogueActive = false;
-    
+    [Header("--- ELEMENTOS INTERNOS ---")]
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI chatText;
+    public Image faceImage;
+
+    // Variables de control (Ahora públicas para que el Player pueda leerlas)
+    public bool isPlayerInRange = false; 
+    public bool isDialogueActive = false;
+
     // Datos temporales
     private string[] currentLines;
     private int currentLineIndex = 0;
-    private NPCInteraction currentNPC; 
+    private NPCInteraction currentNPC;
 
     void Awake()
     {
@@ -33,31 +32,25 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        // ================================================================
-        // AQUÍ ESTÁ LA MAGIA: Al darle Play, el script fuerza a esconder todo.
-        // No importa si lo dejaste prendido en el editor, esto lo apaga.
-        // ================================================================
         messageContainer.SetActive(false);
         interactionPrompt.SetActive(false);
     }
 
-    void Update()
+    // --- ELIMINAMOS EL UPDATE COMPLETO ---
+    // Ya no detectamos input aquí.
+    
+    // --- NUEVA FUNCIÓN PÚBLICA QUE LLAMARÁ EL PLAYER ---
+    public void IntentarInteraccion()
     {
-        var gamepad = Gamepad.current;
-        if (gamepad == null) return;
-
-        // Detectar botón Triángulo (Button North)
-        // Solo funciona si estamos cerca del NPC
-        if (isPlayerInRange && gamepad.buttonNorth.wasPressedThisFrame)
+        // Solo hacemos algo si el jugador está en rango
+        if (isPlayerInRange)
         {
             if (!isDialogueActive)
             {
-                // Si no estamos hablando -> Empezar a hablar
                 AbrirDialogo();
             }
             else
             {
-                // Si ya estamos hablando -> Siguiente frase
                 SiguienteFrase();
             }
         }
@@ -69,12 +62,11 @@ public class DialogueManager : MonoBehaviour
     {
         currentNPC = npc;
         isPlayerInRange = true;
-        
-        // Si no estamos en medio de una charla, mostramos el BOTÓN
+
         if (!isDialogueActive)
         {
-            interactionPrompt.SetActive(true); // <--- MUESTRA TRIÁNGULO
-            messageContainer.SetActive(false); // Asegura que el chat siga oculto
+            interactionPrompt.SetActive(true);
+            messageContainer.SetActive(false);
         }
     }
 
@@ -82,9 +74,8 @@ public class DialogueManager : MonoBehaviour
     {
         isPlayerInRange = false;
         currentNPC = null;
-        
-        // Si nos alejamos, se apaga TODO
-        interactionPrompt.SetActive(false); // <--- OCULTA TRIÁNGULO
+
+        interactionPrompt.SetActive(false);
         CerrarDialogo();
     }
 
@@ -93,13 +84,9 @@ public class DialogueManager : MonoBehaviour
     void AbrirDialogo()
     {
         isDialogueActive = true;
-        
-        
-        // INTERCAMBIO VISUAL:
-        interactionPrompt.SetActive(false); // 1. Ocultamos el botón Triángulo
-        messageContainer.SetActive(true);   // 2. Mostramos la ventana de Chat
+        interactionPrompt.SetActive(false);
+        messageContainer.SetActive(true);
 
-        // Cargar datos
         nameText.text = currentNPC.nombreNPC;
         faceImage.sprite = currentNPC.caraNPC;
         currentLines = currentNPC.frasesDialogo;
@@ -117,7 +104,6 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            // Se acabaron las frases
             CerrarDialogo();
         }
     }
@@ -125,13 +111,8 @@ public class DialogueManager : MonoBehaviour
     void CerrarDialogo()
     {
         isDialogueActive = false;
-        
-        // Ocultamos el chat
-        messageContainer.SetActive(false); 
+        messageContainer.SetActive(false);
 
-        // Lógica inteligente:
-        // Si cerramos el chat pero SEGUIMOS cerca del NPC, 
-        // volvemos a mostrar el botón por si quiere hablar otra vez.
         if (isPlayerInRange)
         {
             interactionPrompt.SetActive(true);

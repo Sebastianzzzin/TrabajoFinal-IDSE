@@ -6,12 +6,12 @@ public class PlayerControllerGamepad : MonoBehaviour
 {
     [Header("Movimiento")]
     public float moveSpeed = 5f;
-    public float turboSpeedMultiplier = 2f; // Velocidad x2 con Turbo
+    public float turboSpeedMultiplier = 2f; 
     public float verticalSpeed = 3f;
     public float threshold = 0.2f;
 
     [Header("Consumo")]
-    public float costoTurbo = 30f; // Gasta 30 de turbo por segundo
+    public float costoTurbo = 30f; 
 
     [Header("Rotación")]
     public float rotationSpeed = 10f;
@@ -25,13 +25,14 @@ public class PlayerControllerGamepad : MonoBehaviour
     private bool touchingObstacle = false;
     private bool modoTerceraPersona = false;
 
-    // REFERENCIA NUEVA
+    // REFERENCIAS
     private PlayerStats stats; 
+    // No necesitamos referencia al DialogueManager aquí porque usamos su Singleton (Instance)
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        stats = GetComponent<PlayerStats>(); // Buscamos el script de vida/gasolina
+        stats = GetComponent<PlayerStats>(); 
         rb.isKinematic = false;
     }
 
@@ -40,6 +41,26 @@ public class PlayerControllerGamepad : MonoBehaviour
         var gamepad = Gamepad.current;
         if (gamepad == null) return;
 
+        // ============================================================
+        // 1. DETECTAR DIÁLOGO (TRIÁNGULO / BUTTON NORTH)
+        // ============================================================
+        if (gamepad.buttonNorth.wasPressedThisFrame)
+        {
+            // Verificamos si el DialogueManager existe y si está listo para hablar
+            if (DialogueManager.Instance != null && DialogueManager.Instance.isPlayerInRange)
+            {
+                Debug.Log("Player ha presionado Triángulo -> Enviando señal al DialogueManager");
+                DialogueManager.Instance.IntentarInteraccion();
+                
+                // Opcional: Si quieres que no se mueva mientras habla, pon un return aquí
+                // if (DialogueManager.Instance.isDialogueActive) return;
+            }
+        }
+
+        // ============================================================
+        // 2. LÓGICA DE MOVIMIENTO (Solo si no estamos en diálogo, opcional)
+        // ============================================================
+        
         // Cambio de cámara (R3)
         if (gamepad.rightStickButton.wasPressedThisFrame)
         {
@@ -48,37 +69,33 @@ public class PlayerControllerGamepad : MonoBehaviour
             camTerceraPersona.SetActive(modoTerceraPersona);
         }
 
-        // Leer Input
+        // Leer Input de movimiento
         Vector2 stick = gamepad.leftStick.ReadValue();
         bool isMoving = stick.magnitude >= threshold;
         bool isTurboPressed = gamepad.rightTrigger.ReadValue() > 0.1f; 
 
-        // Factor de velocidad (Normal o Turbo)
         float currentSpeed = moveSpeed;
 
-        // Lógica de Consumo
+        // Lógica de Consumo y Turbo
         if (isMoving && stats != null)
         {
-            // 1. Intentar Gastar Gasolina Normal
             bool tieneGasolina = stats.IntentarGastarCombustible(stats.gastoCombustibleAlMover);
             
             if (!tieneGasolina)
             {
-                // Si no hay gasolina, nos movemos muuuuy lento o nada
                 currentSpeed = 0.5f; 
             }
 
-            // 2. Lógica Turbo (Solo si aprietas botón y tienes barra azul)
             if (isTurboPressed && tieneGasolina)
             {
                 if (stats.IntentarUsarTurbo(costoTurbo))
                 {
-                    currentSpeed *= turboSpeedMultiplier; // Aceleron
+                    currentSpeed *= turboSpeedMultiplier; 
                 }
             }
         }
 
-        // Ejecutar Movimiento (GTA o TopDown)
+        // Ejecutar Movimiento
         if (modoTerceraPersona)
         {
             MovimientoGTA(gamepad, stick, currentSpeed);
@@ -89,7 +106,7 @@ public class PlayerControllerGamepad : MonoBehaviour
         }
     }
 
-    // --- HE SEPARADO TUS MOVIMIENTOS PARA QUE SE LEA MEJOR ---
+    // --- FUNCIONES DE MOVIMIENTO (Sin cambios) ---
 
     void MovimientoTopDown(Gamepad gp, Vector2 stick, float velocidad)
     {
@@ -102,11 +119,7 @@ public class PlayerControllerGamepad : MonoBehaviour
             Vector3 targetPos = transform.position + moveVector * velocidad * Time.deltaTime;
             transform.position = targetPos;
         }
-
-        // Altura (Sin cambios)
         ControlarAltura(gp);
-
-        // Rotación
         Vector2 vecRot = new Vector2(stick.x, -stick.y);
         if (vecRot.magnitude >= threshold)
         {
@@ -118,19 +131,15 @@ public class PlayerControllerGamepad : MonoBehaviour
 
     void MovimientoGTA(Gamepad gp, Vector2 stick, float velocidad)
     {
-        // Avanzar
         float forward = stick.y;
         Vector3 moveDir = transform.forward * forward * velocidad * Time.deltaTime;
         transform.position += moveDir;
-
-        // Girar
         float turn = stick.x;
         if (Mathf.Abs(turn) > threshold)
         {
             float turnAmount = turn * rotationSpeed * Time.deltaTime * 10f;
             transform.Rotate(0f, turnAmount, 0f);
         }
-
         ControlarAltura(gp);
     }
 
