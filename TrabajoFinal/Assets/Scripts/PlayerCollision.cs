@@ -13,7 +13,7 @@ public class PlayerCollision : MonoBehaviour
     {
         if (other.CompareTag("Obstacle"))
         {
-            Debug.Log("Goku chocó con una nube!");
+            Debug.Log("Goku choco con una nube!");
             if (screenFlash != null)
                 screenFlash.Flash();
         }
