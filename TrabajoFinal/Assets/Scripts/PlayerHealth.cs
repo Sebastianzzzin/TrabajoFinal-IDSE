@@ -9,13 +9,26 @@ public class PlayerHealth : MonoBehaviour
 
     public Slider barraVida;
 
+    public float tiempoInmunidad = 1f;
+    bool esInmune = false;
+
     void Start()
     {
-        vidaActual = vidaMaxima;  // Fuerza siempre a 100 al iniciar
-        ActualizarBarra();
+        vidaActual = vidaMaxima;
+        barraVida.maxValue = vidaMaxima;
+        barraVida.value = vidaActual;
     }
 
+    // SI EL OBST�CULO ES TRIGGER
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Obstacle"))
+        {
+            IntentarDanio();
+        }
+    }
 
+    // SI EL OBST�CULO ES COLLISION NORMAL
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
@@ -32,23 +45,27 @@ public class PlayerHealth : MonoBehaviour
         if (vidaActual < 0)
             vidaActual = 0;
 
-        ActualizarBarra();
+        vidaActual -= 20;
+        vidaActual = Mathf.Clamp(vidaActual, 0, vidaMaxima);
+        barraVida.value = vidaActual;
 
         if (vidaActual <= 0)
         {
-            Morir();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            StartCoroutine(InmunidadTemporal());
         }
     }
 
-    void ActualizarBarra()
+    System.Collections.IEnumerator InmunidadTemporal()
     {
-        if (barraVida != null)
-            barraVida.value = vidaActual;
-    }
-
-    void Morir()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        esInmune = true;
+        yield return new WaitForSeconds(tiempoInmunidad);
+        esInmune = false;
     }
 }
+
+
 
