@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
         barraVida.value = vidaActual;
     }
 
-    // SI EL OBSTÁCULO ES TRIGGER
+    // SI EL OBSTï¿½CULO ES TRIGGER
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Obstacle"))
@@ -28,18 +28,22 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    // SI EL OBSTÁCULO ES COLLISION NORMAL
+    // SI EL OBSTï¿½CULO ES COLLISION NORMAL
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            IntentarDanio();
+            RecibirDano(20);
+            Debug.Log("Jugador ha recibido dano por colision con obstulo.");
         }
     }
 
-    void IntentarDanio()
+    void RecibirDano(int dano)
     {
-        if (esInmune) return;
+        vidaActual -= dano;
+
+        if (vidaActual < 0)
+            vidaActual = 0;
 
         vidaActual -= 20;
         vidaActual = Mathf.Clamp(vidaActual, 0, vidaMaxima);

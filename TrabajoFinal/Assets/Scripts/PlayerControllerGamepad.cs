@@ -6,28 +6,33 @@ public class PlayerControllerGamepad : MonoBehaviour
 {
     [Header("Movimiento")]
     public float moveSpeed = 5f;
+    public float turboSpeedMultiplier = 2f; 
     public float verticalSpeed = 3f;
     public float threshold = 0.2f;
+
+    [Header("Consumo")]
+    public float costoTurbo = 30f; 
 
     [Header("Rotación")]
     public float rotationSpeed = 10f;
     public bool invertirSigno = true;
 
-    [Header("Detección de colisión")]
-    public float collisionCheckDistance = 0.5f;
-
-    [Header("Cámaras")] // NUEVO
+    [Header("Cámaras")]
     public GameObject camTopDown;
     public GameObject camTerceraPersona;
 
     private Rigidbody rb;
     private bool touchingObstacle = false;
+    private bool modoTerceraPersona = false;
 
-    private bool modoTerceraPersona = false; // NUEVO
+    // REFERENCIAS
+    private PlayerStats stats; 
+    // No necesitamos referencia al DialogueManager aquí porque usamos su Singleton (Instance)
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        stats = GetComponent<PlayerStats>(); 
         rb.isKinematic = false;
     }
 
@@ -37,8 +42,26 @@ public class PlayerControllerGamepad : MonoBehaviour
         if (gamepad == null) return;
 
         // ============================================================
-        // =======       DETECTAR R3 PARA CAMBIAR DE CAMARA     =======
+        // 1. DETECTAR DIÁLOGO (TRIÁNGULO / BUTTON NORTH)
         // ============================================================
+        if (gamepad.buttonNorth.wasPressedThisFrame)
+        {
+            // Verificamos si el DialogueManager existe y si está listo para hablar
+            if (DialogueManager.Instance != null && DialogueManager.Instance.isPlayerInRange)
+            {
+                Debug.Log("Player ha presionado Triángulo -> Enviando señal al DialogueManager");
+                DialogueManager.Instance.IntentarInteraccion();
+                
+                // Opcional: Si quieres que no se mueva mientras habla, pon un return aquí
+                // if (DialogueManager.Instance.isDialogueActive) return;
+            }
+        }
+
+        // ============================================================
+        // 2. LÓGICA DE MOVIMIENTO (Solo si no estamos en diálogo, opcional)
+        // ============================================================
+        
+        // Cambio de cámara (R3)
         if (gamepad.rightStickButton.wasPressedThisFrame)
         {
             modoTerceraPersona = !modoTerceraPersona;
@@ -46,99 +69,89 @@ public class PlayerControllerGamepad : MonoBehaviour
             camTerceraPersona.SetActive(modoTerceraPersona);
         }
 
+        // Leer Input de movimiento
+        Vector2 stick = gamepad.leftStick.ReadValue();
+        bool isMoving = stick.magnitude >= threshold;
+        bool isTurboPressed = gamepad.rightTrigger.ReadValue() > 0.1f; 
 
-        // ============================================================
-        // =======           MODO TERCERA PERSONA (GTA V)       =======
-        // ============================================================
-        if (modoTerceraPersona)
+        float currentSpeed = moveSpeed;
+
+        // Lógica de Consumo y Turbo
+        if (isMoving && stats != null)
         {
-            MovimientoGTA(gamepad);
-            return; // IMPORTANTE: no ejecutar el movimiento top-down
+            bool tieneGasolina = stats.IntentarGastarCombustible(stats.gastoCombustibleAlMover);
+            
+            if (!tieneGasolina)
+            {
+                currentSpeed = 0.5f; 
+            }
+
+            if (isTurboPressed && tieneGasolina)
+            {
+                if (stats.IntentarUsarTurbo(costoTurbo))
+                {
+                    currentSpeed *= turboSpeedMultiplier; 
+                }
+            }
         }
 
+        // Ejecutar Movimiento
+        if (modoTerceraPersona)
+        {
+            MovimientoGTA(gamepad, stick, currentSpeed);
+        }
+        else
+        {
+            MovimientoTopDown(gamepad, stick, currentSpeed);
+        }
+    }
 
-        // ============================================================
-        // =======         TU MOVIMIENTO ORIGINAL TOP-DOWN       =======
-        // ============================================================
+    // --- FUNCIONES DE MOVIMIENTO (Sin cambios) ---
 
-        Vector2 stick = gamepad.leftStick.ReadValue();
+    void MovimientoTopDown(Gamepad gp, Vector2 stick, float velocidad)
+    {
         Vector3 moveVector = new Vector3(stick.x, 0f, stick.y);
-
-        // Activar kinematic si está tocando un obstáculo
         rb.isKinematic = touchingObstacle;
 
-        // Movimiento horizontal
         if (moveVector.magnitude >= threshold)
         {
             moveVector.Normalize();
-            Vector3 targetPos = transform.position + moveVector * moveSpeed * Time.deltaTime;
-
+            Vector3 targetPos = transform.position + moveVector * velocidad * Time.deltaTime;
             transform.position = targetPos;
         }
-
-        // Subir/Bajar (L1/R1)
-        float vertical = 0f;
-        if (gamepad.leftShoulder.isPressed) vertical -= 1f;
-        if (gamepad.rightShoulder.isPressed) vertical += 1f;
-
-        if (vertical != 0f)
-        {
-            Vector3 verticalMove = new Vector3(0f, vertical * verticalSpeed * Time.deltaTime, 0f);
-            transform.position += verticalMove;
-        }
-
-        // Rotación top-down
+        ControlarAltura(gp);
         Vector2 vecRot = new Vector2(stick.x, -stick.y);
         if (vecRot.magnitude >= threshold)
         {
             float angle = Mathf.Atan2(vecRot.x, vecRot.y) * Mathf.Rad2Deg;
             if (invertirSigno) angle = -angle;
-
-            Quaternion targetRotation = Quaternion.Euler(0f, angle, 0f);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, angle, 0f), rotationSpeed * Time.deltaTime);
         }
     }
 
-    // ============================================================
-    // ===============    ESTILO AUTO GTA V   =====================
-    // ============================================================
-    void MovimientoGTA(Gamepad gp)
+    void MovimientoGTA(Gamepad gp, Vector2 stick, float velocidad)
     {
-        Vector2 stick = gp.leftStick.ReadValue();
-
-        // Avanzar / retroceder
         float forward = stick.y;
-        Vector3 moveDir = transform.forward * forward * moveSpeed * Time.deltaTime;
+        Vector3 moveDir = transform.forward * forward * velocidad * Time.deltaTime;
         transform.position += moveDir;
-
-        // Girar (solo izquierda/derecha)
         float turn = stick.x;
         if (Mathf.Abs(turn) > threshold)
         {
             float turnAmount = turn * rotationSpeed * Time.deltaTime * 10f;
             transform.Rotate(0f, turnAmount, 0f);
         }
+        ControlarAltura(gp);
+    }
 
-        // Subir / Bajar (igual que antes)
+    void ControlarAltura(Gamepad gp)
+    {
         float vertical = 0f;
         if (gp.leftShoulder.isPressed) vertical -= 1f;
         if (gp.rightShoulder.isPressed) vertical += 1f;
 
         if (vertical != 0f)
         {
-            Vector3 verticalMove = new Vector3(0f, vertical * verticalSpeed * Time.deltaTime, 0f);
-            transform.position += verticalMove;
+            transform.position += new Vector3(0f, vertical * verticalSpeed * Time.deltaTime, 0f);
         }
-    }
-
-    // ======= Detectar colisiones =======
-    void OnCollisionEnter(Collision collision)
-    {
-        touchingObstacle = true;
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        touchingObstacle = false;
     }
 }
