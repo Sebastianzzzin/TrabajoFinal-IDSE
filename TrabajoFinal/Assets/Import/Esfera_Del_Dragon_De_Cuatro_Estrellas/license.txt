@@ -1,0 +1,11 @@
+Model Information:
+* title:	Esfera Del Dragon De Cuatro Estrellas
+* source:	https://sketchfab.com/3d-models/esfera-del-dragon-de-cuatro-estrellas-c994e895551f45eba18a05d8cf594ebf
+* author:	LordPandoo (https://sketchfab.com/LordPandoo)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Esfera Del Dragon De Cuatro Estrellas" (https://sketchfab.com/3d-models/esfera-del-dragon-de-cuatro-estrellas-c994e895551f45eba18a05d8cf594ebf) by LordPandoo (https://sketchfab.com/LordPandoo) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
