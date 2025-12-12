@@ -16,7 +16,7 @@ public class DialogueManager : MonoBehaviour
     public Image faceImage;
 
     // Variables de control (Ahora públicas para que el Player pueda leerlas)
-    public bool isPlayerInRange = false; 
+    public bool isPlayerInRange = false;
     public bool isDialogueActive = false;
 
     // Datos temporales
@@ -38,7 +38,7 @@ public class DialogueManager : MonoBehaviour
 
     // --- ELIMINAMOS EL UPDATE COMPLETO ---
     // Ya no detectamos input aquí.
-    
+
     // --- NUEVA FUNCIÓN PÚBLICA QUE LLAMARÁ EL PLAYER ---
     public void IntentarInteraccion()
     {
@@ -56,8 +56,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // --- FUNCIONES QUE LLAMAN LOS NPCS ---
-
+    // --- FUNCIONES QUE LLAMAN LOS NPCs ---
     public void EntrarEnRango(NPCInteraction npc)
     {
         currentNPC = npc;
@@ -80,7 +79,6 @@ public class DialogueManager : MonoBehaviour
     }
 
     // --- LÓGICA INTERNA VISUAL ---
-
     void AbrirDialogo()
     {
         isDialogueActive = true;
@@ -113,9 +111,20 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = false;
         messageContainer.SetActive(false);
 
+        // Otorgar recompensa si el NPC la tiene
+        if (currentNPC != null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            Debug.Log("currentNPC es: " + (currentNPC != null));
+            Debug.Log("isPlayerInRange = " + isPlayerInRange);
+            currentNPC.DarRecompensa(player);
+        }
+
         if (isPlayerInRange)
         {
             interactionPrompt.SetActive(true);
         }
+
+        Debug.Log(">>> Se ejecutó CerrarDialogo()");
     }
 }

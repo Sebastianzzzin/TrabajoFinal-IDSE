@@ -14,10 +14,15 @@ public class PlayerStats : MonoBehaviour
     public int cargasTurboMaximas = 5;
     private int cargasTurboActuales;
 
-    [Header("--- AUDIO Y DRAMA (NUEVO) ---")]
-    public AudioSource fuenteVoz;   // Arrastra aquí el AudioSource 3 (SFX)
-    public AudioClip clipAuch;      // Arrastra el sonido de golpe
-    public AudioClip clipMaldicion; // Arrastra el sonido de muerte
+    // --- CARACTERÍSTICA EXCLUSIVA DEL SCRIPT 1: AUDIO ---
+    [Header("--- AUDIO Y DRAMA ---")]
+    public AudioSource fuenteVoz;   // Arrastra aquí el AudioSource (SFX)
+    public AudioClip clipAuch;      // Sonido de golpe
+    public AudioClip clipMaldicion; // Sonido de muerte dramática
+
+    // --- CARACTERÍSTICA EXCLUSIVA DEL SCRIPT 2: ESFERAS ---
+    [Header("--- ESFERAS DEL DRAGÓN ---")]
+    public bool[] esferasDragon = new bool[7];
 
     [Header("--- CONSUMO ---")]
     public float gastoCombustibleAlMover = 5f;
@@ -31,7 +36,7 @@ public class PlayerStats : MonoBehaviour
     private float combustibleActual;
     private float turboActual;
     private int vidasRestantes;
-    private bool estaMuerto = false; // Para evitar que te maten 2 veces
+    private bool estaMuerto = false; // Del Script 1, para evitar doble muerte
 
     public HUDController hud; 
 
@@ -51,13 +56,13 @@ public class PlayerStats : MonoBehaviour
         combustibleActual = combustibleMaximo;
         turboActual = turboMaximo;
         cargasTurboActuales = cargasTurboMaximas;
-        estaMuerto = false;
+        estaMuerto = false; // Resetear estado de muerte
 
         // 3. Actualizar HUD
         ActualizarTodoElHUD();
     }
 
-    // --- LÓGICA DE TURBO ---
+    // --- LÓGICA DE TURBO (COMÚN EN AMBOS) ---
     public bool IntentarUsarTurbo(float cantidadGasto)
     {
         if (turboActual > 0)
@@ -112,12 +117,13 @@ public class PlayerStats : MonoBehaviour
             RecuperarCargaTurbo();
             Destroy(other.gameObject);
         }
+        
+        // NOTA: Si los objetos de las Esferas tienen su propio script que llama a 
+        // "AgregarEsferaDragon", no necesitas un trigger aquí. 
+        // Si no, puedes añadir aquí: if(other.CompareTag("Esfera")) ...
     }
 
-    // --- SISTEMA DE DAÑO Y SONIDO ---
-    
-    // IMPORTANTE: Asegúrate de que el script de la Lava llame a "RecibirDano" (sin Ñ)
-    // O cambia el nombre de esta función a "RecibirDaño" si la lava usa la Ñ.
+    // --- SISTEMA DE DAÑO Y SONIDO (MEJORADO DEL SCRIPT 1) ---
     public void RecibirDano(int dano)
     {
         if (esInmune || estaMuerto) return;
@@ -151,7 +157,7 @@ public class PlayerStats : MonoBehaviour
         esInmune = false;
     }
 
-    // --- SISTEMA DE MUERTE DRAMÁTICA ---
+    // --- SISTEMA DE MUERTE DRAMÁTICA (DEL SCRIPT 1 - MÁS COMPLETO) ---
     void ManejarMuerte()
     {
         if (estaMuerto) return; // Evitar doble muerte
@@ -163,7 +169,8 @@ public class PlayerStats : MonoBehaviour
 
         Debug.Log("¡Maldición... he muerto!");
 
-        // 1. APAGAR MOTORES (Buscamos el otro script)
+        // 1. APAGAR MOTORES (Buscamos el script de control)
+        // Asegúrate que tu script de movimiento se llame exactamente "PlayerControllerGTA"
         PlayerControllerGTA vuelo = GetComponent<PlayerControllerGTA>();
         if (vuelo != null)
         {
@@ -180,7 +187,7 @@ public class PlayerStats : MonoBehaviour
             fuenteVoz.PlayOneShot(clipMaldicion);
         }
 
-        // 3. REINICIAR CON RETRASO (Esperamos 3 segundos)
+        // 3. REINICIAR CON RETRASO
         StartCoroutine(ReiniciarEscenaConRetraso());
     }
 
@@ -196,8 +203,7 @@ public class PlayerStats : MonoBehaviour
         {
             Debug.Log("GAME OVER REAL");
             PlayerPrefs.DeleteKey("VidasJugador");
-            // Aquí podrías cargar una escena de "Menu Principal" o "GameOver"
-            // Por ahora reiniciamos el nivel actual
+            // Reiniciar nivel o ir a Menu Principal
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
         }
     }
@@ -209,6 +215,39 @@ public class PlayerStats : MonoBehaviour
             cargasTurboActuales++;
             hud.ActualizarCargasTurbo(cargasTurboActuales);
         }
+    }
+
+    // --- MÉTODOS DE ESFERAS DEL DRAGÓN (DEL SCRIPT 2) ---
+    
+    public void AgregarEsferaDragon(int numero)
+    {
+        if (numero < 1 || numero > 7)
+        {
+            Debug.LogWarning("Número de esfera inválido: " + numero);
+            return;
+        }
+
+        int index = numero - 1;
+
+        if (!esferasDragon[index])
+        {
+            esferasDragon[index] = true;
+            Debug.Log("Goku obtuvo la esfera del dragón número " + numero);
+            // Opcional: Sonido de obtener item
+        }
+        else
+        {
+            Debug.Log("Esa esfera ya fue obtenida.");
+        }
+    }
+
+    public bool TieneTodasLasEsferas()
+    {
+        for (int i = 0; i < esferasDragon.Length; i++)
+        {
+            if (!esferasDragon[i]) return false;
+        }
+        return true;
     }
 
     void ActualizarTodoElHUD()
