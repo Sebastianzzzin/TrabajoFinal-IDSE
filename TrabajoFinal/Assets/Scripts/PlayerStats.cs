@@ -107,17 +107,17 @@ public class PlayerStats : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle")) RecibirDano(20);
     }
-
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Obstacle")) RecibirDano(20);
-
-        if (other.CompareTag("ItemTurbo"))
+        
+        if (other.CompareTag("ItemTurbo")) 
         {
             RecuperarCargaTurbo();
             Destroy(other.gameObject);
         }
-
+        
         // NOTA: Si los objetos de las Esferas tienen su propio script que llama a 
         // "AgregarEsferaDragon", no necesitas un trigger aquí. 
         // Si no, puedes añadir aquí: if(other.CompareTag("Esfera")) ...
@@ -130,7 +130,7 @@ public class PlayerStats : MonoBehaviour
 
         vidaActual -= dano;
         if (vidaActual < 0) vidaActual = 0;
-
+        
         hud.ActualizarVida(vidaActual, vidaMaxima);
 
         // SONIDO: AUCH
@@ -176,8 +176,8 @@ public class PlayerStats : MonoBehaviour
         {
             vuelo.enabled = false; // Quitamos control
             // Apagamos los sonidos de vuelo para que se oiga el grito
-            if (vuelo.sourceVueloNormal) vuelo.sourceVueloNormal.Stop();
-            if (vuelo.sourceVueloTurbo) vuelo.sourceVueloTurbo.Stop();
+            if(vuelo.sourceVueloNormal) vuelo.sourceVueloNormal.Stop();
+            if(vuelo.sourceVueloTurbo) vuelo.sourceVueloTurbo.Stop();
         }
 
         // 2. SONIDO: GRITO FINAL
@@ -204,7 +204,7 @@ public class PlayerStats : MonoBehaviour
             Debug.Log("GAME OVER REAL");
             PlayerPrefs.DeleteKey("VidasJugador");
             // Reiniciar nivel o ir a Menu Principal
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
         }
     }
 
@@ -218,7 +218,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     // --- MÉTODOS DE ESFERAS DEL DRAGÓN (DEL SCRIPT 2) ---
-
+    
     public void AgregarEsferaDragon(int numero)
     {
         if (numero < 1 || numero > 7)

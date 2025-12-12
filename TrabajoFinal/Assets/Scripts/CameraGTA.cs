@@ -1,0 +1,98 @@
+using UnityEngine;
+using System.Collections; // Necesario para Corutinas
+
+public class CamaraGTA : MonoBehaviour
+{
+    [Header("Referencias")]
+    public Transform target;
+
+    [Header("Configuración")]
+    public float distancia = 5.0f;
+    public float sensibilidadX = 150.0f; 
+    public float sensibilidadY = 150.0f;
+    
+    [Header("Límites")]
+    public float limiteMinY = -20f;
+    public float limiteMaxY = 80f;
+
+    [Header("Colisión")]
+    public LayerMask capasDeColision;
+    public float velocidadAjustePared = 10f;
+
+    // Estado interno
+    private float distanciaActual;
+    private float rotacionX = 0.0f;
+    private float rotacionY = 0.0f;
+    private Vector2 inputRecibido;
+    
+    // --- NUEVO: Variable para la vibración ---
+    private Vector3 offsetVibracion; 
+
+    void Start()
+    {
+        distanciaActual = distancia;
+        Vector3 angulos = transform.eulerAngles;
+        rotacionX = angulos.y;
+        rotacionY = angulos.x;
+
+        if (target == null) Debug.LogWarning("¡Falta asignar el Target en la Cámara!");
+    }
+
+    public void RecibirInput(Vector2 input)
+    {
+        inputRecibido = input;
+    }
+
+    // --- NUEVO: Función para activar la vibración ---
+    public void ActivarVibracion(float duracion, float fuerza)
+    {
+        StopAllCoroutines(); // Reinicia si ya estaba vibrando
+        StartCoroutine(RutinaVibracion(duracion, fuerza));
+    }
+
+    private IEnumerator RutinaVibracion(float duracion, float fuerza)
+    {
+        float tiempo = 0;
+        while (tiempo < duracion)
+        {
+            // Genera un desplazamiento aleatorio
+            offsetVibracion = Random.insideUnitSphere * fuerza;
+            tiempo += Time.deltaTime;
+            yield return null;
+        }
+        offsetVibracion = Vector3.zero; // Regresa a la normalidad
+    }
+    // ---------------------------------------------
+
+    void LateUpdate()
+    {
+        if (!target) return;
+
+        float inputX = inputRecibido.x * sensibilidadX * Time.deltaTime;
+        float inputY = inputRecibido.y * sensibilidadY * Time.deltaTime;
+
+        rotacionX += inputX;
+        rotacionY -= inputY; 
+        rotacionY = Mathf.Clamp(rotacionY, limiteMinY, limiteMaxY);
+
+        Quaternion rotacion = Quaternion.Euler(rotacionY, rotacionX, 0);
+        Vector3 posicionDeseada = rotacion * new Vector3(0.0f, 0.0f, -distancia) + target.position;
+        Vector3 direccionHaciaCamara = posicionDeseada - target.position;
+        
+        RaycastHit hit;
+        if (Physics.SphereCast(target.position, 0.2f, direccionHaciaCamara.normalized, out hit, distancia, capasDeColision))
+        {
+            distanciaActual = hit.distance;
+        }
+        else
+        {
+            distanciaActual = Mathf.Lerp(distanciaActual, distancia, Time.deltaTime * velocidadAjustePared);
+        }
+
+        Vector3 posicionBase = rotacion * new Vector3(0.0f, 0.0f, -distanciaActual) + target.position;
+
+        // --- APLICAMOS LA VIBRACIÓN AL FINAL ---
+        transform.rotation = rotacion;
+        transform.position = posicionBase + offsetVibracion;
+    }
+}

@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class LimiteVertical : MonoBehaviour
 {
-    [Header("LÌmites en X (izquierda / derecha)")]
+    [Header("L√≠mites en X (izquierda / derecha)")]
     public float limiteIzquierda = -21f;  // un poco menos que el inicio
-    public float limiteDerecha = 21f;     // un poco m·s que el templo
+    public float limiteDerecha = 21f;     // un poco m√°s que el templo
 
-    [Header("LÌmites en Y (arriba / abajo)")]
-    public float limiteSuperiorY = 6f;    // m·s arriba del templo
-    public float limiteInferiorY = -3f;   // un poco m·s abajo de goku
+    [Header("L√≠mites en Y (arriba / abajo)")]
+    public float limiteSuperiorY = 6f;    // m√°s arriba del templo
+    public float limiteInferiorY = -3f;   // un poco m√°s abajo de goku
 
-    [Header("LÌmites en Z (profundidad)")]
+    [Header("L√≠mites en Z (profundidad)")]
     public float limiteSuperiorZ = 1.5f;
     public float limiteInferiorZ = -1.5f;
 
-    void Update()
+    void LateUpdate()
     {
         Vector3 pos = transform.position;
 
@@ -24,11 +24,5 @@ public class LimiteVertical : MonoBehaviour
 
         transform.position = pos;
     }
+
 }
-
-
-
-
-
-
-
