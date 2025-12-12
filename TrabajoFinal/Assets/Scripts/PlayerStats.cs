@@ -38,7 +38,7 @@ public class PlayerStats : MonoBehaviour
     private int vidasRestantes;
     private bool estaMuerto = false; // Del Script 1, para evitar doble muerte
 
-    public HUDController hud; 
+    public HUDController hud;
 
     void Start()
     {
