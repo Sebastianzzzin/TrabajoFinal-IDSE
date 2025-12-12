@@ -7,16 +7,20 @@ public class PlayerStats : MonoBehaviour
     [Header("--- ESTADÍSTICAS ---")]
     public int vidaMaxima = 100;
     public float combustibleMaximo = 100f;
-    public float turboMaximo = 100f; // Tamaño de la barra azul
+    public float turboMaximo = 100f;
     public int vidasIniciales = 3;
 
     [Header("--- SISTEMA DE CARGAS TURBO ---")]
-    public int cargasTurboMaximas = 5; // Cuántas flechas verdes tienes
+    public int cargasTurboMaximas = 5;
     private int cargasTurboActuales;
+
+    [Header("--- AUDIO Y DRAMA (NUEVO) ---")]
+    public AudioSource fuenteVoz;   // Arrastra aquí el AudioSource 3 (SFX)
+    public AudioClip clipAuch;      // Arrastra el sonido de golpe
+    public AudioClip clipMaldicion; // Arrastra el sonido de muerte
 
     [Header("--- CONSUMO ---")]
     public float gastoCombustibleAlMover = 5f;
-    // Eliminada la recuperación pasiva de turbo, ahora es por cargas
 
     [Header("--- DAÑO ---")]
     public float tiempoInmunidad = 1f;
@@ -27,6 +31,7 @@ public class PlayerStats : MonoBehaviour
     private float combustibleActual;
     private float turboActual;
     private int vidasRestantes;
+    private bool estaMuerto = false; // Para evitar que te maten 2 veces
 
     public HUDController hud; 
 
@@ -36,59 +41,49 @@ public class PlayerStats : MonoBehaviour
         if (PlayerPrefs.HasKey("VidasJugador"))
             vidasRestantes = PlayerPrefs.GetInt("VidasJugador");
         else
+        {
             vidasRestantes = vidasIniciales;
             PlayerPrefs.SetInt("VidasJugador", vidasRestantes);
+        }
 
         // 2. Inicializar Stats
         vidaActual = vidaMaxima;
         combustibleActual = combustibleMaximo;
         turboActual = turboMaximo;
-        
-        // Empezamos con todas las flechas verdes
         cargasTurboActuales = cargasTurboMaximas;
+        estaMuerto = false;
 
         // 3. Actualizar HUD
         ActualizarTodoElHUD();
     }
 
-    // --- LÓGICA DE TURBO (MODIFICADA) ---
+    // --- LÓGICA DE TURBO ---
     public bool IntentarUsarTurbo(float cantidadGasto)
     {
-        // 1. Si tenemos barra azul, la gastamos
         if (turboActual > 0)
         {
             turboActual -= cantidadGasto * Time.deltaTime;
             hud.ActualizarTurbo(turboActual, turboMaximo);
-            return true; // Estamos usando turbo
+            return true;
         }
-        // 2. Si la barra azul llegó a 0... ¡RECARGA AUTOMÁTICA!
         else
         {
             if (cargasTurboActuales > 0)
             {
-                // Gastamos una flecha verde
                 cargasTurboActuales--;
-                
-                // Rellenamos la barra azul a tope
                 turboActual = turboMaximo;
-                
-                // Actualizamos HUD (Barra llena y una flecha menos)
                 hud.ActualizarCargasTurbo(cargasTurboActuales);
                 hud.ActualizarTurbo(turboActual, turboMaximo);
-                
-                return true; // Seguimos usando turbo gracias a la recarga
+                return true;
             }
             else
             {
-                // No queda barra azul NI cargas verdes. Se acabó.
                 turboActual = 0;
                 hud.ActualizarTurbo(0, turboMaximo);
                 return false;
             }
         }
     }
-
-    // --- RESTO DEL CÓDIGO (Combustible, Daño, Muerte) ---
 
     public bool IntentarGastarCombustible(float cantidad)
     {
@@ -102,15 +97,16 @@ public class PlayerStats : MonoBehaviour
         return false;
     }
 
+    // --- COLISIONES ---
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Obstacle")) RecibirDano(20);
     }
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Obstacle")) RecibirDano(20);
         
-        // PODRÍAS PONER ITEMS PARA RECUPERAR CARGAS TURBO
         if (other.CompareTag("ItemTurbo")) 
         {
             RecuperarCargaTurbo();
@@ -118,31 +114,79 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    // --- SISTEMA DE DAÑO Y SONIDO ---
+    
+    // IMPORTANTE: Asegúrate de que el script de la Lava llame a "RecibirDano" (sin Ñ)
+    // O cambia el nombre de esta función a "RecibirDaño" si la lava usa la Ñ.
     public void RecibirDano(int dano)
     {
-        if (esInmune) return;
+        if (esInmune || estaMuerto) return;
+
         vidaActual -= dano;
         if (vidaActual < 0) vidaActual = 0;
+        
         hud.ActualizarVida(vidaActual, vidaMaxima);
 
-        if (vidaActual <= 0) ManejarMuerte();
-        else StartCoroutine(RutinaInmunidad());
+        // SONIDO: AUCH
+        if (fuenteVoz != null && clipAuch != null)
+        {
+            fuenteVoz.PlayOneShot(clipAuch);
+        }
+
+        if (vidaActual <= 0)
+        {
+            ManejarMuerte();
+        }
+        else
+        {
+            StartCoroutine(RutinaInmunidad());
+        }
     }
 
     IEnumerator RutinaInmunidad()
     {
         esInmune = true;
+        // Aquí podrías hacer que parpadee el modelo
         yield return new WaitForSeconds(tiempoInmunidad);
         esInmune = false;
     }
 
+    // --- SISTEMA DE MUERTE DRAMÁTICA ---
     void ManejarMuerte()
     {
+        if (estaMuerto) return; // Evitar doble muerte
+        estaMuerto = true;
+
         vidasRestantes--;
         PlayerPrefs.SetInt("VidasJugador", vidasRestantes);
-        
-        // Actualizar la imagen de vidas antes de reiniciar
         hud.ActualizarImagenVidas(vidasRestantes);
+
+        Debug.Log("¡Maldición... he muerto!");
+
+        // 1. APAGAR MOTORES (Buscamos el otro script)
+        PlayerControllerGTA vuelo = GetComponent<PlayerControllerGTA>();
+        if (vuelo != null)
+        {
+            vuelo.enabled = false; // Quitamos control
+            // Apagamos los sonidos de vuelo para que se oiga el grito
+            if(vuelo.sourceVueloNormal) vuelo.sourceVueloNormal.Stop();
+            if(vuelo.sourceVueloTurbo) vuelo.sourceVueloTurbo.Stop();
+        }
+
+        // 2. SONIDO: GRITO FINAL
+        if (fuenteVoz != null && clipMaldicion != null)
+        {
+            fuenteVoz.Stop(); // Calla el "Auch" si estaba sonando
+            fuenteVoz.PlayOneShot(clipMaldicion);
+        }
+
+        // 3. REINICIAR CON RETRASO (Esperamos 3 segundos)
+        StartCoroutine(ReiniciarEscenaConRetraso());
+    }
+
+    IEnumerator ReiniciarEscenaConRetraso()
+    {
+        yield return new WaitForSeconds(3.0f); // Espera dramática
 
         if (vidasRestantes > 0)
         {
@@ -150,13 +194,14 @@ public class PlayerStats : MonoBehaviour
         }
         else
         {
-            Debug.Log("GAME OVER");
+            Debug.Log("GAME OVER REAL");
             PlayerPrefs.DeleteKey("VidasJugador");
+            // Aquí podrías cargar una escena de "Menu Principal" o "GameOver"
+            // Por ahora reiniciamos el nivel actual
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
         }
     }
 
-    // Función extra por si quieres poner items que te den cargas
     public void RecuperarCargaTurbo()
     {
         if (cargasTurboActuales < cargasTurboMaximas)
@@ -172,8 +217,6 @@ public class PlayerStats : MonoBehaviour
         hud.ActualizarVida(vidaActual, vidaMaxima);
         hud.ActualizarCombustible(combustibleActual, combustibleMaximo);
         hud.ActualizarTurbo(turboActual, turboMaximo);
-        
-        // Nuevas actualizaciones
         hud.ActualizarCargasTurbo(cargasTurboActuales);
         hud.ActualizarImagenVidas(vidasRestantes);
     }

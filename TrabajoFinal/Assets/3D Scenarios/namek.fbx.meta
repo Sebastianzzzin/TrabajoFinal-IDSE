@@ -1,0 +1,252 @@
+fileFormatVersion: 2
+guid: 5d454b2ca6ec7fc4eb54030601a85523
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_BRGround00
+    second: {fileID: 2800000, guid: fcbe9841ee20a6b4c8d32fdde1baf382, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_FarGround
+    second: {fileID: 2800000, guid: 29b7429d40a513643ae62f606d90903c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_GroundSide
+    second: {fileID: 2800000, guid: a22e560059197304dbf763d0f3adbdee, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_RockSide01
+    second: {fileID: 2800000, guid: 98ed344eb060a6142a7339769222c53c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_TreeStem
+    second: {fileID: 2800000, guid: a3dddff21dce1d446ab14ef0edfd4730, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_cloud02
+    second: {fileID: 2800000, guid: 630375e22420c9b439ad57e3448733c2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_crater
+    second: {fileID: 2800000, guid: 595845916ba936046a5343fa7ebf2282, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_fship
+    second: {fileID: 2800000, guid: 308a878a670294d478afd86d33bb8c6b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_fshipin
+    second: {fileID: 2800000, guid: 41aafe739c1afe4488cd87c40f4a4fbe, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_fshipstep
+    second: {fileID: 2800000, guid: 5c0ae2dbf74066b49811d358267781b7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_grass
+    second: {fileID: 2800000, guid: ad1eba76f9e74b74ba5a25ba8c8faf6d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_groundout
+    second: {fileID: 2800000, guid: 020d4335217342d43a9361fbc8fbeee8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_house01_noout
+    second: {fileID: 2800000, guid: 34df3887bd93e6349826a4996db11e87, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_house03_noout
+    second: {fileID: 2800000, guid: b46d5382c935e344e832274fcdfcf108, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_pier
+    second: {fileID: 2800000, guid: a3dbca2f21ec67540aab232ad08896f6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_ridge
+    second: {fileID: 2800000, guid: 153b3f7dacc60de4eae492d16e498eea, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_rock01
+    second: {fileID: 2800000, guid: 8dee9902d4ebffb47b80a37326dea61e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_rock01out
+    second: {fileID: 2800000, guid: a0ed208a9e9f5384e90066d1e54df08c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_rock02
+    second: {fileID: 2800000, guid: 8f34635f661453646bab4523905f5fc0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_rubble
+    second: {fileID: 2800000, guid: 9bb48289090296948bd80fa127983605, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_sea
+    second: {fileID: 2800000, guid: 5e8134c924e6ccf41b5167d312b8e689, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_sky
+    second: {fileID: 2800000, guid: 51b7049943255494e9d676cee59ee9d6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_stone01
+    second: {fileID: 2800000, guid: bf8715c35a4187646b323913ac50cda7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_sun01
+    second: {fileID: 2800000, guid: 0e0c386cc26fddd469df67dd66333322, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_sun02
+    second: {fileID: 2800000, guid: f878a2d74ee68334bbb433be501d9be7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_table
+    second: {fileID: 2800000, guid: 16edb00e799fd6849a7d4d0f9c39e6b9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_table02
+    second: {fileID: 2800000, guid: a008ade3f46159c42a0049b963a89743, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_table_br
+    second: {fileID: 2800000, guid: 22c90403d18e2e4459f0d7a0f672897f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: na_treereaf02
+    second: {fileID: 2800000, guid: 1e31e98d9cc79a04eb968647d59aedac, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
