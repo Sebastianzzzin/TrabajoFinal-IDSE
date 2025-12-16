@@ -1,0 +1,11 @@
+Model Information:
+* title:	Kamisama no Shinden
+* source:	https://sketchfab.com/3d-models/kamisama-no-shinden-b6dbdf5e61c845d5925d5dd653c493cb
+* author:	Nowis 3D (https://sketchfab.com/Nowis3D)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Kamisama no Shinden" (https://sketchfab.com/3d-models/kamisama-no-shinden-b6dbdf5e61c845d5925d5dd653c493cb) by Nowis 3D (https://sketchfab.com/Nowis3D) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
