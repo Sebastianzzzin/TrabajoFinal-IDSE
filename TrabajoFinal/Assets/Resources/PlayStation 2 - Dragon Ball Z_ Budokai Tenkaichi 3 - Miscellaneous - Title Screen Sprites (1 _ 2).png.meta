@@ -1,0 +1,510 @@
+fileFormatVersion: 2
+guid: b542cce417fba4248ab87a7f96bc6d62
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous -
+        Title Screen Sprites (1 _ 2)_1
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 961
+        width: 512
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3b46bbef765f084684ce3904c563ca3
+      internalID: 138731491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous -
+        Title Screen Sprites (1 _ 2)_2
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 800
+        width: 512
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9585732e8f96f6a4580f2448dc027c9c
+      internalID: 1419874529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous -
+        Title Screen Sprites (1 _ 2)_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 371
+        width: 179
+        height: 325
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 805fb4700ed19ef4cb8d95222768ec82
+      internalID: -439098826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous -
+        Title Screen Sprites (1 _ 2)_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 265
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd5b6114d8731b24c8afa7c3b620ae7d
+      internalID: 1592983721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous -
+        Title Screen Sprites (1 _ 2)_6
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 425
+        width: 127
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce4f021c6bb1d3e4e973efa6bfbcf541
+      internalID: 1561296471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous -
+        Title Screen Sprites (1 _ 2)_7
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 542
+        width: 188
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cd4a9e3e68df7745a055f908544c398
+      internalID: -1966311352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous -
+        Title Screen Sprites (1 _ 2)_8
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 446
+        width: 126
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08d27ffb0dff574dab7afde03fa5c48
+      internalID: 1143843582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous -
+        Title Screen Sprites (1 _ 2)_9
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 461
+        width: 112
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bad81c30054ba24ab6fd8c6f9682009
+      internalID: -556839870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous -
+        Title Screen Sprites (1 _ 2)_17
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 23
+        width: 303
+        height: 208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 047abdcc34cd24748b230a8d19a19abc
+      internalID: -1009322366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous -
+        Title Screen Sprites (1 _ 2)_18
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 127
+        width: 83
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f271a9b9d6d17914195469642efb8cc5
+      internalID: -1128435175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous -
+        Title Screen Sprites (1 _ 2)_19
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 127
+        width: 88
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83538ed4001d8a54ab7eb53b47022884
+      internalID: -1564371666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous -
+        Title Screen Sprites (1 _ 2)_20
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 120
+        width: 88
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 998ffcb9f29238342950ff8a0942f0d7
+      internalID: -1922289248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous -
+        Title Screen Sprites (1 _ 2)_21
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 121
+        width: 89
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f7d1231f2bd28b42ab463ef2f9f5be0
+      internalID: -1745417073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous -
+        Title Screen Sprites (1 _ 2)_22
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 127
+        width: 91
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d0507940d13e5841a734d501b795ca2
+      internalID: -264375984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous -
+        Title Screen Sprites (1 _ 2)_23
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 127
+        width: 88
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d389245698d2a44e869a7768f35b42a
+      internalID: 1317775928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous -
+        Title Screen Sprites (1 _ 2)_24
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 127
+        width: 87
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 829338dcd3eace7489103ad4a0f52dd0
+      internalID: -1902876897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 06d43b68761665240bfc74ef5ef9b2ae
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_0: -208172307
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_1: 138731491
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_10: -32455903
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_11: 1870615478
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_12: -1807570862
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_13: -2108131138
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_14: -251101586
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_15: 2039535412
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_16: -21771977
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_17: -1009322366
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_18: -1128435175
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_19: -1564371666
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_2: 1419874529
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_20: -1922289248
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_21: -1745417073
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_22: -264375984
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_23: 1317775928
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_24: -1902876897
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_3: 745941780
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_4: -439098826
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_5: 1592983721
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_6: 1561296471
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_7: -1966311352
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_8: 1143843582
+      PlayStation 2 - Dragon Ball Z_ Budokai Tenkaichi 3 - Miscellaneous - Title Screen Sprites (1 _ 2)_9: -556839870
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
