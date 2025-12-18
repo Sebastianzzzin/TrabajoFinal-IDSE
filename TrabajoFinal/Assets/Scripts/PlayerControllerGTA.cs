@@ -29,6 +29,7 @@ public class PlayerControllerGTA : MonoBehaviour
     private Rigidbody rb;
     private PlayerStats stats;
     private bool puedeMoverse = true; 
+    public bool EstaUsandoTurbo { get; private set; } 
     
     // Variable para controlar la mezcla (0 = Normal, 1 = Turbo)
     private float mezclaActual = 0f; 
@@ -96,6 +97,7 @@ public class PlayerControllerGTA : MonoBehaviour
                 {
                     velocidadActual *= turboSpeedMultiplier;
                     usandoTurboEfectivo = true;
+                    EstaUsandoTurbo = usandoTurboEfectivo; 
                 }
             }
         }
