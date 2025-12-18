@@ -1802,7 +1802,7 @@ PrefabInstance:
       insertIndex: 3
       addedObject: {fileID: 831462945}
     - targetCorrespondingSourceObject: {fileID: 7333162547569499070, guid: bca33b0b2779ecc4dbf0945c22bf0481, type: 3}
-      insertIndex: 7
+      insertIndex: -1
       addedObject: {fileID: 831462953}
     - targetCorrespondingSourceObject: {fileID: 7333162547569499070, guid: bca33b0b2779ecc4dbf0945c22bf0481, type: 3}
       insertIndex: -1
@@ -2406,13 +2406,14 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1508529239}
-  - {fileID: 1801231099}
   - {fileID: 1961728832}
+  - {fileID: 1801231099}
   - {fileID: 2023628649}
   - {fileID: 1352820101}
   - {fileID: 414768221}
   - {fileID: 1338151680}
   - {fileID: 611571604}
+  - {fileID: 414768221}
   - {fileID: 2017174391}
   - {fileID: 788372628}
   - {fileID: 1829665092}
