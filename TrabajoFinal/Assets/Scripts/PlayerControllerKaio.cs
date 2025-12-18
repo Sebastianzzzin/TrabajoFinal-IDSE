@@ -18,13 +18,10 @@ public class PlayerControllerKaio : MonoBehaviour
     public float velocidadRotacion = 10f; 
 
     [Header("Ajustes de Física")]
-    // La fuerza de gravedad esférica
     public float fuerzaGravedad = 50f;
-    // La amortiguación, qué tan rápido la velocidad vertical vuelve a 0 (SOLUCIÓN VIBRACIÓN)
     public float amortiguacionVertical = 5f; 
 
-    // Audio y Estelas (Mismos que antes)
-    // ... (Mantener todas las variables de Audio y Estelas) ...
+    [Header("Audio y FX")]
     public AudioSource sourceVueloNormal;
     public AudioSource sourceVueloTurbo;
     public float velocidadFundido = 2.0f;
@@ -38,15 +35,22 @@ public class PlayerControllerKaio : MonoBehaviour
     
     public bool EstaUsandoTurbo { get; private set; } 
 
+    [Header("Ajustes de Nivel Especial")]
+    public bool modoCombustibleInfinito = false; 
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         
-        // ¡Volvemos a Física Real!
+        // CONFIGURACIÓN OBLIGATORIA DEL RIGIDBODY
         rb.useGravity = false;
-        rb.isKinematic = false; // <-- Vuelve a ser FALSE
+        rb.isKinematic = false; 
         rb.freezeRotation = true;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
+        
+        // Aseguramos que el drag no nos frene de golpe
+        rb.linearDamping = 1f; // En Unity viejos esto es 'drag', ver nota abajo
+        rb.angularDamping = 1f;
 
         if (sourceVueloNormal) { sourceVueloNormal.loop = true; sourceVueloNormal.Play(); sourceVueloNormal.volume = 1; }
         if (sourceVueloTurbo) { sourceVueloTurbo.loop = true; sourceVueloTurbo.Play(); sourceVueloTurbo.volume = 0; }
@@ -59,7 +63,12 @@ public class PlayerControllerKaio : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (planetaCentro == null || camaraTransform == null) return;
+        // 1. CHEQUEO DE SEGURIDAD: Si esto falta, no nos movemos
+        if (planetaCentro == null || camaraTransform == null)
+        {
+            Debug.LogError("¡FALTAN REFERENCIAS EN EL PLAYER CONTROLLER! Asigna Planeta y Cámara.");
+            return;
+        }
 
         AplicarGravedadYFlotacion();
         AplicarMovimientoYRotacion();
@@ -68,10 +77,10 @@ public class PlayerControllerKaio : MonoBehaviour
 
     void LeerInput()
     {
-        // (La lógica de lectura de Input y Turbo es la misma de la V4 y funciona bien)
         inputMovimiento = Vector2.zero;
         EstaUsandoTurbo = false;
         
+        // Lectura de Gamepad
         if (Gamepad.current != null)
         {
             inputMovimiento = Gamepad.current.leftStick.ReadValue();
@@ -82,6 +91,7 @@ public class PlayerControllerKaio : MonoBehaviour
             }
         }
         
+        // Lectura de Teclado (Si no hay gamepad o es cero)
         if (inputMovimiento == Vector2.zero) 
         {
             if (Keyboard.current.wKey.isPressed) inputMovimiento.y += 1;
@@ -100,32 +110,27 @@ public class PlayerControllerKaio : MonoBehaviour
     void AplicarGravedadYFlotacion()
     {
         Vector3 direccionArriba = (transform.position - planetaCentro.position).normalized;
-        Vector3 direccionGravedad = -direccionArriba; // Hacia el centro
+        Vector3 direccionGravedad = -direccionArriba;
 
-        // 1. APLICAR GRAVEDAD CONSTANTE (Para que luche contra el turbo)
+        // Gravedad Artificial
         rb.AddForce(direccionGravedad * fuerzaGravedad, ForceMode.Acceleration);
 
-        // 2. AMORTIGUACIÓN VERTICAL (¡SOLUCIÓN VIBRACIÓN!)
-        // Buscamos la velocidad en la dirección "arriba/abajo" del planeta
+        // Amortiguación (Freno vertical para no rebotar)
+        // NOTA: Usamos rb.velocity para compatibilidad máxima (funciona en Unity 6 y 2022)
         float velocidadVertical = Vector3.Dot(rb.linearVelocity, direccionArriba);
 
-        // Si la velocidad vertical no es 0, aplicamos una fuerza de freno
         if (Mathf.Abs(velocidadVertical) > 0.01f)
         {
-            // Queremos llevar la velocidad vertical a 0 de forma suave (freno)
             Vector3 fuerzaFreno = -direccionArriba * velocidadVertical * amortiguacionVertical;
             rb.AddForce(fuerzaFreno, ForceMode.Acceleration);
         }
 
-        // 3. CORRECCIÓN DE ALTURA (Para que flote exactamente a alturaFlotacion)
+        // Flotación (Raycast)
         RaycastHit hit;
-        // Lanzamos rayo desde el cuerpo hacia el centro (gravedad)
         if (Physics.Raycast(rb.position, direccionGravedad, out hit, 10f))
         {
             float distanciaAlSuelo = hit.distance;
             float errorAltura = distanciaAlSuelo - alturaFlotacion;
-
-            // Si estamos muy lejos (error positivo) o muy cerca (error negativo), aplicamos un ajuste suave
             Vector3 fuerzaAjuste = direccionGravedad * (errorAltura * fuerzaGravedad * 0.5f);
             rb.AddForce(fuerzaAjuste, ForceMode.Acceleration);
         }
@@ -140,29 +145,29 @@ public class PlayerControllerKaio : MonoBehaviour
 
         if (inputMovimiento.magnitude > 0.1f)
         {
-            // Calcular dirección de cámara proyectada en la esfera
             Vector3 camFwd = Vector3.ProjectOnPlane(camaraTransform.forward, direccionArriba).normalized;
             Vector3 camRight = Vector3.ProjectOnPlane(camaraTransform.right, direccionArriba).normalized;
 
             direccionDeseada = (camFwd * inputMovimiento.y + camRight * inputMovimiento.x).normalized;
             
-            // Gasto de combustible normal
-            if (stats != null) stats.IntentarGastarCombustible(stats.gastoCombustibleAlMover);
+            // Lógica de Combustible (Solo si no es infinito)
+             if (stats != null && !modoCombustibleInfinito) 
+            {
+                stats.IntentarGastarCombustible(stats.gastoCombustibleAlMover);
+            }
         }
 
-        // Aplicamos el movimiento directamente a la velocidad lineal del Rigidbody
-        // Solo afectamos la componente *horizontal* (tangente a la esfera)
+        // --- FÍSICA DE MOVIMIENTO ---
         Vector3 velocidadTarget = direccionDeseada * velocidadActual;
         
-        // Obtenemos la velocidad horizontal actual (proyectada en el plano tangente)
+        // Usamos rb.velocity (más compatible que linearVelocity)
         Vector3 velocidadHorizontalActual = Vector3.ProjectOnPlane(rb.linearVelocity, direccionArriba);
 
-        // Calculamos la fuerza para llevar la velocidad horizontal actual a la velocidadTarget
-        Vector3 fuerzaMovimiento = (velocidadTarget - velocidadHorizontalActual) * 20f; // El '20f' es un valor de aceleración
+        // Aplicamos fuerza para alcanzar la velocidad deseada
+        Vector3 fuerzaMovimiento = (velocidadTarget - velocidadHorizontalActual) * 20f; 
         rb.AddForce(fuerzaMovimiento, ForceMode.Acceleration);
         
-        
-        // --- ROTACIÓN (SOLUCIÓN BUG 180 GRADOS) ---
+        // --- ROTACIÓN ---
         Quaternion rotacionGravedad = Quaternion.FromToRotation(transform.up, direccionArriba) * transform.rotation;
         
         if (direccionDeseada != Vector3.zero)
@@ -172,14 +177,12 @@ public class PlayerControllerKaio : MonoBehaviour
         }
         else
         {
-            // Si no hay input, solo alineamos al suelo
             transform.rotation = Quaternion.Slerp(transform.rotation, rotacionGravedad, Time.fixedDeltaTime * velocidadRotacion);
         }
     }
 
     void GestionarEfectos()
     {
-        // (Lógica de Audio y Trail Estela de la V4)
         float objetivo = EstaUsandoTurbo ? 1.0f : 0.0f;
         mezclaActual = Mathf.MoveTowards(mezclaActual, objetivo, Time.deltaTime * velocidadFundido);
 

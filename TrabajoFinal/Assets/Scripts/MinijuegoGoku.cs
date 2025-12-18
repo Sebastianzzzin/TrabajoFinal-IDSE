@@ -47,7 +47,11 @@ public class MinijuegoGoku : MonoBehaviour
     }
 
     void Update()
-    {
+    { 
+        if (DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive) 
+        {
+            return; 
+        }
         // 1. LÓGICA DE SPRITE (Cerrar boca)
         // Si el tiempo de masticar se acaba, vuelve a Idle
         if (tiempoParaCerrarBoca > 0)
