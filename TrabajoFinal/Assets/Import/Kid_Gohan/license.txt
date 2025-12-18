@@ -1,0 +1,8 @@
+Model Information:
+* title:	Kid Gohan
+* source:	https://sketchfab.com/3d-models/kid-gohan-7f18328b21564a6192a955c71723dc9c
+* author:	Tigerar1 (https://sketchfab.com/allanromanreyes)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
