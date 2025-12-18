@@ -18,7 +18,21 @@ public class NPCInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // 1. Iniciar logica de dialogo
             DialogueManager.Instance.EntrarEnRango(this);
+
+            // 2. NUEVO: Detener a Tao Pai Pai
+            // Buscamos el objeto por su nombre exacto en la Jerarquía
+            GameObject generador = GameObject.Find("GeneradorDeAtaques");
+
+            if (generador != null)
+            {
+                generador.SetActive(false); // Esto apaga el generador
+                Debug.Log("¡Zona Segura! Tao Pai Pai desactivado.");
+            }
+
+            // Opcional: Si quieres destruir los pilares que ya están en pantalla
+            // podrías buscar los objetos con tag "Enemigo" y destruirlos aquí también.
         }
     }
 

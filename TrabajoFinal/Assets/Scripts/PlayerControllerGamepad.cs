@@ -1,17 +1,29 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerControllerGamepad : MonoBehaviour
 {
+    [Header("--- AUDIO DE VUELO (CROSSFADE) ---")]
+    public AudioSource sourceVueloNormal;
+    public AudioSource sourceVueloTurbo;
+    public float velocidadFundido = 2.0f;
+
+    [Header("Efectos Visuales")]
+    public TrailRenderer trailEstela;
+    public float largoNormal = 0.3f;
+    public float largoTurbo = 3.0f;
+    public float velocidadCambioEstela = 5f;
+
     [Header("Movimiento")]
     public float moveSpeed = 5f;
-    public float turboSpeedMultiplier = 2f; 
+    public float turboSpeedMultiplier = 2f;
     public float verticalSpeed = 3f;
     public float threshold = 0.2f;
 
     [Header("Consumo")]
-    public float costoTurbo = 30f; 
+    public float costoTurbo = 30f;
 
     [Header("Rotación")]
     public float rotationSpeed = 10f;
@@ -25,15 +37,28 @@ public class PlayerControllerGamepad : MonoBehaviour
     private bool touchingObstacle = false;
     private bool modoTerceraPersona = false;
 
-    // REFERENCIAS
-    private PlayerStats stats; 
-    // No necesitamos referencia al DialogueManager aquí porque usamos su Singleton (Instance)
+    private PlayerStats stats;
+    private float mezclaActual = 0.0f;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        stats = GetComponent<PlayerStats>(); 
+        stats = GetComponent<PlayerStats>();
         rb.isKinematic = false;
+
+        if (sourceVueloNormal != null)
+        {
+            sourceVueloNormal.loop = true;
+            sourceVueloNormal.Play();
+            sourceVueloNormal.volume = 1;
+        }
+
+        if (sourceVueloTurbo != null)
+        {
+            sourceVueloTurbo.loop = true;
+            sourceVueloTurbo.Play();
+            sourceVueloTurbo.volume = 0;
+        }
     }
 
     void Update()
@@ -46,22 +71,15 @@ public class PlayerControllerGamepad : MonoBehaviour
         // ============================================================
         if (gamepad.buttonNorth.wasPressedThisFrame)
         {
-            // Verificamos si el DialogueManager existe y si está listo para hablar
             if (DialogueManager.Instance != null && DialogueManager.Instance.isPlayerInRange)
             {
-                Debug.Log("Player ha presionado Triángulo -> Enviando señal al DialogueManager");
                 DialogueManager.Instance.IntentarInteraccion();
-                
-                // Opcional: Si quieres que no se mueva mientras habla, pon un return aquí
-                // if (DialogueManager.Instance.isDialogueActive) return;
             }
         }
 
         // ============================================================
-        // 2. LÓGICA DE MOVIMIENTO (Solo si no estamos en diálogo, opcional)
+        // 2. CAMBIO DE CÁMARA (R3)
         // ============================================================
-        
-        // Cambio de cámara (R3)
         if (gamepad.rightStickButton.wasPressedThisFrame)
         {
             modoTerceraPersona = !modoTerceraPersona;
@@ -69,33 +87,60 @@ public class PlayerControllerGamepad : MonoBehaviour
             camTerceraPersona.SetActive(modoTerceraPersona);
         }
 
-        // Leer Input de movimiento
+        // ============================================================
+        // 3. INPUT BASE DE MOVIMIENTO
+        // ============================================================
         Vector2 stick = gamepad.leftStick.ReadValue();
         bool isMoving = stick.magnitude >= threshold;
-        bool isTurboPressed = gamepad.rightTrigger.ReadValue() > 0.1f; 
+        bool isTurboPressed = gamepad.rightTrigger.ReadValue() > 0.1f;
 
         float currentSpeed = moveSpeed;
+        bool usandoTurboEfectivo = false;
 
-        // Lógica de Consumo y Turbo
+        // ============================================================
+        // 4. CONSUMO / TURBO / SONIDO / ESTELA
+        // ============================================================
         if (isMoving && stats != null)
         {
             bool tieneGasolina = stats.IntentarGastarCombustible(stats.gastoCombustibleAlMover);
-            
+
             if (!tieneGasolina)
             {
-                currentSpeed = 0.5f; 
+                currentSpeed = 0.5f;
             }
 
+            // TURBO
             if (isTurboPressed && tieneGasolina)
             {
                 if (stats.IntentarUsarTurbo(costoTurbo))
                 {
-                    currentSpeed *= turboSpeedMultiplier; 
+                    currentSpeed *= turboSpeedMultiplier;
+                    usandoTurboEfectivo = true;
                 }
             }
         }
 
-        // Ejecutar Movimiento
+        // --- AUDIO CROSSFADING ---
+        float objetivoMezcla = usandoTurboEfectivo ? 1.0f : 0.0f;
+
+        mezclaActual = Mathf.MoveTowards(mezclaActual, objetivoMezcla, Time.deltaTime * velocidadFundido);
+
+        if (sourceVueloNormal != null && sourceVueloTurbo != null)
+        {
+            sourceVueloNormal.volume = 1.0f - mezclaActual;
+            sourceVueloTurbo.volume = mezclaActual;
+        }
+
+        // --- ESTELA ---
+        if (trailEstela != null)
+        {
+            float targetTime = usandoTurboEfectivo ? largoTurbo : largoNormal;
+            trailEstela.time = Mathf.Lerp(trailEstela.time, targetTime, Time.deltaTime * velocidadCambioEstela);
+        }
+
+        // ============================================================
+        // 5. MOVIMIENTO FINAL
+        // ============================================================
         if (modoTerceraPersona)
         {
             MovimientoGTA(gamepad, stick, currentSpeed);
@@ -106,7 +151,9 @@ public class PlayerControllerGamepad : MonoBehaviour
         }
     }
 
-    // --- FUNCIONES DE MOVIMIENTO (Sin cambios) ---
+    // ============================================================
+    // FUNCIONES DE MOVIMIENTO
+    // ============================================================
 
     void MovimientoTopDown(Gamepad gp, Vector2 stick, float velocidad)
     {
@@ -116,10 +163,11 @@ public class PlayerControllerGamepad : MonoBehaviour
         if (moveVector.magnitude >= threshold)
         {
             moveVector.Normalize();
-            Vector3 targetPos = transform.position + moveVector * velocidad * Time.deltaTime;
-            transform.position = targetPos;
+            transform.position += moveVector * velocidad * Time.deltaTime;
         }
+
         ControlarAltura(gp);
+
         Vector2 vecRot = new Vector2(stick.x, -stick.y);
         if (vecRot.magnitude >= threshold)
         {
@@ -134,12 +182,14 @@ public class PlayerControllerGamepad : MonoBehaviour
         float forward = stick.y;
         Vector3 moveDir = transform.forward * forward * velocidad * Time.deltaTime;
         transform.position += moveDir;
+
         float turn = stick.x;
         if (Mathf.Abs(turn) > threshold)
         {
             float turnAmount = turn * rotationSpeed * Time.deltaTime * 10f;
             transform.Rotate(0f, turnAmount, 0f);
         }
+
         ControlarAltura(gp);
     }
 

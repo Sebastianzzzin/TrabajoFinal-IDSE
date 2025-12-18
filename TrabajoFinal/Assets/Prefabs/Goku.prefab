@@ -802,7 +802,6 @@ GameObject:
   - component: {fileID: 3190839041899138723}
   - component: {fileID: 6523167174670762472}
   - component: {fileID: 2126180024787901938}
-  - component: {fileID: 6910680583191335797}
   - component: {fileID: 6470066721778604163}
   - component: {fileID: 6193923548255864807}
   m_Layer: 0
@@ -893,27 +892,6 @@ MonoBehaviour:
   velocidad: 5
   velocidadSubida: 1
   rotacionVelocidad: 80
---- !u!114 &6910680583191335797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7333162547569499070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa6cf770fdc2ee046b0e4f8660fe3e83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  turboSpeedMultiplier: 2
-  verticalSpeed: 3
-  threshold: 0.2
-  costoTurbo: 30
-  rotationSpeed: 10
-  invertirSigno: 1
-  camTopDown: {fileID: 0}
-  camTerceraPersona: {fileID: 0}
 --- !u!114 &6470066721778604163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -931,6 +909,10 @@ MonoBehaviour:
   turboMaximo: 100
   vidasIniciales: 3
   cargasTurboMaximas: 5
+  fuenteVoz: {fileID: 0}
+  clipAuch: {fileID: 0}
+  clipMaldicion: {fileID: 0}
+  esferasDragon: 00000000000000
   gastoCombustibleAlMover: 5
   tiempoInmunidad: 1
   hud: {fileID: 0}
