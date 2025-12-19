@@ -497,6 +497,11 @@ MonoBehaviour:
   invertirSigno: 1
   camTopDown: {fileID: 0}
   camTerceraPersona: {fileID: 0}
+--- !u!4 &579458402 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 499538130055068608, guid: 9a9ef25e3dcb8a843bb0c15682a6871f, type: 3}
+  m_PrefabInstance: {fileID: 2099975412}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &593584672 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1465694168443398776, guid: e179fb02197a43f40b2fe32f046f715f, type: 3}
@@ -1176,12 +1181,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465070879}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c22616008db41048ba83aae8a25e8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  jugador: {fileID: 0}
+  jugador: {fileID: 579458402}
   offsetTopDown: {x: 0, y: 15, z: -8}
   rotacionTopDown: {x: 60, y: 0, z: 0}
   suavizado: 8
