@@ -250,10 +250,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6523167174670762472, guid: bca33b0b2779ecc4dbf0945c22bf0481, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8609002986267179155, guid: bca33b0b2779ecc4dbf0945c22bf0481, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 160920136}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7333162547569499070, guid: bca33b0b2779ecc4dbf0945c22bf0481, type: 3}
       insertIndex: -1
@@ -422,16 +419,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   velocidadAjustePared: 10
---- !u!4 &160920136 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 160466860513281902, guid: 1c7f6bf679797a046b819aec39148f72, type: 3}
-  m_PrefabInstance: {fileID: 764391495}
-  m_PrefabAsset: {fileID: 0}
---- !u!96 &160920137 stripped
-TrailRenderer:
-  m_CorrespondingSourceObject: {fileID: 7658329816102050977, guid: 1c7f6bf679797a046b819aec39148f72, type: 3}
-  m_PrefabInstance: {fileID: 764391495}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &458738074
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,63 +643,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 139d2a081eec14e4289ebfcd1918de92, type: 3}
---- !u!1001 &764391495
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1462418753}
-    m_Modifications:
-    - target: {fileID: 160466860513281902, guid: 1c7f6bf679797a046b819aec39148f72, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1267.5657
-      objectReference: {fileID: 0}
-    - target: {fileID: 160466860513281902, guid: 1c7f6bf679797a046b819aec39148f72, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -121.09595
-      objectReference: {fileID: 0}
-    - target: {fileID: 160466860513281902, guid: 1c7f6bf679797a046b819aec39148f72, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1562.9802
-      objectReference: {fileID: 0}
-    - target: {fileID: 160466860513281902, guid: 1c7f6bf679797a046b819aec39148f72, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 160466860513281902, guid: 1c7f6bf679797a046b819aec39148f72, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 160466860513281902, guid: 1c7f6bf679797a046b819aec39148f72, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 160466860513281902, guid: 1c7f6bf679797a046b819aec39148f72, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 160466860513281902, guid: 1c7f6bf679797a046b819aec39148f72, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 160466860513281902, guid: 1c7f6bf679797a046b819aec39148f72, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 160466860513281902, guid: 1c7f6bf679797a046b819aec39148f72, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1405786235594842117, guid: 1c7f6bf679797a046b819aec39148f72, type: 3}
-      propertyPath: m_Name
-      value: EmisorEstela
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1c7f6bf679797a046b819aec39148f72, type: 3}
 --- !u!1 &900324523 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 327856298931652168, guid: 7c283d4919bbbbb49b34f0c61916567d, type: 3}
@@ -990,7 +920,7 @@ MonoBehaviour:
   sourceVueloTurbo: {fileID: 0}
   velocidadFundido: 2
   scriptCamara: {fileID: 69408889}
-  trailEstela: {fileID: 160920137}
+  trailEstela: {fileID: 0}
   largoNormal: 0.3
   largoTurbo: 3
   velocidadCambioEstela: 5
@@ -1011,15 +941,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762703b380d71154184831018ee01e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VueloTeclado3D
-  moveSpeed: 20
-  verticalSpeed: 12
-  rotationSpeed: 10
-  scriptCamara: {fileID: 69408889}
---- !u!4 &1462418753 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8609002986267179155, guid: bca33b0b2779ecc4dbf0945c22bf0481, type: 3}
-  m_PrefabInstance: {fileID: 27309186}
-  m_PrefabAsset: {fileID: 0}
+  velocidadVuelo: 25
+  velocidadVerticalPura: 15
+  suavizadoGiro: 10
+  sensibilidadMouse: 1
+  camaraPrincipal: {fileID: 0}
 --- !u!114 &1482525452 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8971088361336278880, guid: 57834efd9c0e2ab419dbb08cd2152db3, type: 3}
