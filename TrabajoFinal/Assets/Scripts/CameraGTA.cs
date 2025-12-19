@@ -25,12 +25,21 @@ public class CamaraGTA : MonoBehaviour
     private float rotacionY = 0.0f;
     private Vector2 inputRecibido;
     
-    // --- NUEVO: Variable para la vibración ---
     private Vector3 offsetVibracion; 
 
     void Start()
     {
         distanciaActual = distancia;
+
+        // --- MODIFICACIÓN AQUÍ ---
+        // En lugar de tomar la rotación actual de la cámara, forzamos los valores:
+        
+        // rotacionX controla el eje Y (Horizontal). Lo ponemos en -180.
+        rotacionX = -180f; 
+
+        // rotacionY controla el eje X (Vertical). 
+        // Puedes ponerlo en 0, o en 20 para que empiece mirando un poco hacia abajo (estilo GTA).
+        rotacionY = 10f; 
 
         // Si no hay target, avisamos
         if (target == null) Debug.LogWarning("¡Falta asignar el Target en la Cámara!");
@@ -41,9 +50,9 @@ public class CamaraGTA : MonoBehaviour
         inputRecibido = input;
     }
 
-    // --- NUEVO: Función para activar la vibración ---
     public void ActivarVibracion(float duracion, float fuerza)
     {
+        StopAllCoroutines(); 
         StartCoroutine(RutinaVibracion(duracion, fuerza));
     }
 
@@ -52,13 +61,12 @@ public class CamaraGTA : MonoBehaviour
         float tiempo = 0;
         while (tiempo < duracion)
         {
-            // Genera un desplazamiento aleatorio
             offsetVibracion = Random.insideUnitSphere * fuerza;
             tiempo += Time.deltaTime;
             yield return null;
         }
+        offsetVibracion = Vector3.zero; 
     }
-    // ---------------------------------------------
 
     void LateUpdate()
     {
@@ -74,7 +82,7 @@ public class CamaraGTA : MonoBehaviour
 
         // Aquí se crea la rotación final
         Quaternion rotacion = Quaternion.Euler(rotacionY, rotacionX, 0);
-
+        
         Vector3 posicionDeseada = rotacion * new Vector3(0.0f, 0.0f, -distancia) + target.position;
         Vector3 direccionHaciaCamara = posicionDeseada - target.position;
         
@@ -91,7 +99,6 @@ public class CamaraGTA : MonoBehaviour
 
         Vector3 posicionBase = rotacion * new Vector3(0.0f, 0.0f, -distanciaActual) + target.position;
 
-        // --- APLICAMOS LA VIBRACIÓN AL FINAL ---
         transform.rotation = rotacion;
         transform.position = posicionBase + offsetVibracion;
     }
