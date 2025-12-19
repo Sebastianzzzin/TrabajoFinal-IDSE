@@ -181,8 +181,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6193923548255864807, guid: bca33b0b2779ecc4dbf0945c22bf0481, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6193923548255864807, guid: bca33b0b2779ecc4dbf0945c22bf0481, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 462fe516decc5b94382126c06a6d8352, type: 3}
     - target: {fileID: 6470066721778604163, guid: bca33b0b2779ecc4dbf0945c22bf0481, type: 3}
       propertyPath: hud
       value: 
@@ -941,11 +945,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762703b380d71154184831018ee01e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VueloTeclado3D
-  velocidadVuelo: 25
-  velocidadVerticalPura: 15
-  suavizadoGiro: 10
-  sensibilidadMouse: 1
-  camaraPrincipal: {fileID: 0}
+  moveSpeed: 20
+  verticalSpeed: 12
+  rotationSpeed: 7
+  scriptCamara: {fileID: 69408889}
 --- !u!114 &1482525452 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8971088361336278880, guid: 57834efd9c0e2ab419dbb08cd2152db3, type: 3}
@@ -1545,11 +1548,13 @@ MonoBehaviour:
   panelNegroNarrativo: {fileID: 1548536292}
   velocidadFade: 1
   nombreNarrador: Trunks
-  caraPaikuhan: {fileID: -1860804856, guid: ccc8ca84031457d4090904755c0926c5, type: 3}
+  caraPaikuhan: {fileID: -1548055328, guid: 5e87b438c7ddb664780c850345427b36, type: 3}
   dialogoIntro:
-  - Goku ven rapido
+  - Siento el Ki de Goku acercandose
   dialogoFinal:
-  - Goku tienes que buscar a kamisama, el te dira que hacer
+  - Goku, es terrible ah pasado algo en el espacio tiempo que ah hecho que nuestro
+    presente se corroma.
+  - Tendras que hacer las cosas nuevamente y talvez te cruces con enemigos conocidos
   escenaSiguiente: Namekusein
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

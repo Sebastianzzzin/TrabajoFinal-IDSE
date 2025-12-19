@@ -18,11 +18,11 @@ public class VolarTeclado : MonoBehaviour
         // Leemos las teclas (WASD o Flechas)
         // Horizontal = A/D o Izquierda/Derecha
         // Vertical = W/S o Arriba/Abajo
-        float movimientoX = Input.GetAxis("Horizontal");
-        float movimientoY = Input.GetAxis("Vertical");
+        float movimientoY = Input.GetAxis("Horizontal");
+        float movimientoZ = Input.GetAxis("Vertical");
 
         // Calculamos el vector de movimiento (X, Y, 0 en Z)
-        Vector3 direccionVuelo = new Vector3(movimientoX, movimientoY, 0);
+        Vector3 direccionVuelo = new Vector3(0, movimientoZ, movimientoY);
 
         // Movemos el objeto usando su velocidad física
         // Usamos direccionVuelo * velocidad
@@ -35,13 +35,6 @@ public class VolarTeclado : MonoBehaviour
         {
             Debug.Log("¡PERDISTE! Goku chocó con la nube.");
 
-            // OPCIONAL: Reiniciar el nivel automáticamente
-            // Para que esto funcione, necesitas agregar: using UnityEngine.SceneManagement; 
-            // al principio de todo tu script.
-            // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-            // Por ahora, destruyamos a Goku para simular que murió
-            Destroy(this.gameObject);
         }
     }
 }
