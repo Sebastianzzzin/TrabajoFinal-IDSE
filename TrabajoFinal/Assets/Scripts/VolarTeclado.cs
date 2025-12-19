@@ -35,13 +35,6 @@ public class VolarTeclado : MonoBehaviour
         {
             Debug.Log("¡PERDISTE! Goku chocó con la nube.");
 
-            // OPCIONAL: Reiniciar el nivel automáticamente
-            // Para que esto funcione, necesitas agregar: using UnityEngine.SceneManagement; 
-            // al principio de todo tu script.
-            // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-            // Por ahora, destruyamos a Goku para simular que murió
-            Destroy(this.gameObject);
         }
     }
 }

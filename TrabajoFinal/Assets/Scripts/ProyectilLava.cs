@@ -6,12 +6,12 @@ public class ProyectilLava : MonoBehaviour
     public float velocidad = 25f;      // Velocidad del disparo
     public float tiempoDeVida = 5f;    // Distancia (Tiempo antes de desaparecer)
 
-    [Header("Daño")]
-    public int daño = 20;              // Cuánto baja de la barra de vida
+    [Header("Daï¿½o")]
+    public int dao = 20;              // Cunto baja de la barra de vida
 
     void Start()
     {
-        // El proyectil se autodestruye después de X segundos para no llenar la memoria
+        // El proyectil se autodestruye despuï¿½s de X segundos para no llenar la memoria
         Destroy(gameObject, tiempoDeVida);
     }
 
@@ -26,16 +26,16 @@ public class ProyectilLava : MonoBehaviour
         // Verificamos si chocamos con Goku (que debe tener el tag "Player")
         if (other.CompareTag("Player"))
         {
-            // Buscamos TU script específico "PlayerStats"
+            // Buscamos TU script especï¿½fico "PlayerStats"
             PlayerStats statsGoku = other.GetComponent<PlayerStats>();
 
             if (statsGoku != null)
             {
-                // Llamamos a TU función exacta "RecibirDano"
-                statsGoku.RecibirDano(daño);
+                // Llamamos a TU funciï¿½n exacta "RecibirDano"
+                statsGoku.RecibirDano(dao);
 
                 // (Opcional) Mensaje en consola para confirmar
-                Debug.Log("¡Freezer acertó el disparo!");
+                Debug.Log("ï¿½Freezer acertï¿½ el disparo!");
             }
 
             // El disparo desaparece al impactar

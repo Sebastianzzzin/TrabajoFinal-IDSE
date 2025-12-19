@@ -83,7 +83,7 @@ public class MenuManager : MonoBehaviour
         BloquearMenu();
 
         Debug.Log("Cargando Historia...");
-        LevelLoader.Instance.CargarNivel("Nivel1_Historia"); // Pon tu nombre de escena real
+        LevelLoader.Instance.CargarNivel("KameHouse"); // Pon tu nombre de escena real
     }
 
     public void JugarSupervivencia() 
