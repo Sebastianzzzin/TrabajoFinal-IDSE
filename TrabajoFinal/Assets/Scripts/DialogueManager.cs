@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.InputSystem;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
-
+    private System.Action alTerminarDialogo;
     [Header("--- CONTENEDORES ---")]
     public GameObject messageContainer;
     public GameObject interactionPrompt;
@@ -36,10 +36,28 @@ public class DialogueManager : MonoBehaviour
         interactionPrompt.SetActive(false);
     }
 
-    // --- ELIMINAMOS EL UPDATE COMPLETO ---
-    // Ya no detectamos input aquí.
-
-    // --- NUEVA FUNCIÓN PÚBLICA QUE LLAMARÁ EL PLAYER ---
+    void Update()
+    {
+        // Solo escuchamos si hay un diálogo abierto
+        if (isDialogueActive)
+        {
+            // OPCIÓN 1: Teclado (Espacio o Enter)
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+            {
+                SiguienteFrase();
+            }
+            // OPCIÓN 2: Mouse (Clic izquierdo)
+            else if (Input.GetMouseButtonDown(0))
+            {
+                SiguienteFrase();
+            }
+            // OPCIÓN 3: Gamepad (Botón Sur = A en Xbox / X en PlayStation)
+            else if (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame)
+            {
+                SiguienteFrase();
+            }
+        }
+    }
     public void IntentarInteraccion()
     {
         // Solo hacemos algo si el jugador está en rango
@@ -126,5 +144,30 @@ public class DialogueManager : MonoBehaviour
         }
 
         Debug.Log(">>> Se ejecutó CerrarDialogo()");
+        if (alTerminarDialogo != null)
+        {
+            alTerminarDialogo.Invoke(); // Ejecutar la acción pendiente
+            alTerminarDialogo = null;   // Limpiar para la próxima
+        }
+    }
+    public void IniciarDialogoNarrativo(string nombre, Sprite cara, string[] frases, System.Action accionAlTerminar)
+    {
+        // 1. Guardamos qué hacer cuando termine
+        alTerminarDialogo = accionAlTerminar;
+
+        // 2. Configuramos la UI
+        isDialogueActive = true;
+        interactionPrompt.SetActive(false); // Ocultamos la tecla "F" o botón
+        messageContainer.SetActive(true);
+
+        // 3. Llenamos datos visuales
+        nameText.text = nombre;
+        if (faceImage != null) faceImage.sprite = cara;
+
+        currentLines = frases;
+        currentLineIndex = 0;
+
+        // 4. Arrancamos
+        SiguienteFrase();
     }
 }

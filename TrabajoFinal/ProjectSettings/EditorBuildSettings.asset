@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Demo.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Menu Principal.unity
+    guid: 8bc353d4fd11dfc479faa909c50dbe58
+  - enabled: 1
+    path: Assets/Scenes/Niveles Marco/Planeta Kaiosama.unity
+    guid: bb1704fb2eef8c944ad69bd7e199e2b1
+  - enabled: 1
+    path: Assets/Scenes/Niveles Marco/Janemba.unity
+    guid: ed24561405fc91248bf1f02be537ad62
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
