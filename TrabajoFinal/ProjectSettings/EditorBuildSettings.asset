@@ -29,9 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/niveles Kevin/espacio freezer.unity
     guid: e8181216233b1924bb699351581ce1e9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Niveles_alan/KameHouse.unity
     guid: 18e3873c25559fc42ba46b658101991f
+  - enabled: 1
+    path: Assets/Scenes/Niveles_alan/KameHouse2.unity
+    guid: 70d11a7fc080ca147a09a8e8b8006ba0
   - enabled: 1
     path: "Assets/Scenes/Niveles_alan/CiudadDa\xF1ada.unity"
     guid: 3b7e2553374bbaa45be9e1670f17b386

@@ -1,87 +1,88 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody))]
-public class VueloTeclado3D : MonoBehaviour
+public class VueloTeclado3D_Pro : MonoBehaviour
 {
     [Header("Ajustes de Vuelo")]
-    public float velocidadVuelo = 25f;
-    public float velocidadVerticalPura = 15f;
-    public float suavizadoGiro = 10f;
-
-    [Header("Sensibilidad de Cámara")]
-    public float sensibilidadMouse = 1f;
+    public float moveSpeed = 25f;
+    public float verticalSpeed = 15f;
+    public float rotationSpeed = 10f;
 
     [Header("Referencias")]
-    public Transform camaraPrincipal;
-    // Referencia al script de la cámara para enviarle datos
-    private CamaraGTA scriptCamara;
+    public CamaraGTA scriptCamara;
 
     private Rigidbody rb;
-    private float inputHorizontal;
-    private float inputVertical;
-    private float inputSubirBajar;
+    private bool puedeMoverse = true; // Igual que el de tu equipo
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        // Configuración física vital
         rb.useGravity = false;
-        rb.linearDamping = 1f;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous; // <--- VITAL
+    }
 
-        if (camaraPrincipal == null) camaraPrincipal = Camera.main.transform;
+    // --- FUNCIÓN DE COMPATIBILIDAD CON TU EQUIPO ---
+    public void RecibirImpactoRebote(float tiempoAturdimiento)
+    {
+        StartCoroutine(RutinaAturdimiento(tiempoAturdimiento));
+    }
 
-        // Buscamos el script de la cámara para poder hablar con él
-        if (camaraPrincipal != null)
-        {
-            scriptCamara = camaraPrincipal.GetComponent<CamaraGTA>();
-        }
-
-        // Bloquear el mouse para que no se salga de la ventana mientras giras la vista
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+    private IEnumerator RutinaAturdimiento(float tiempo)
+    {
+        puedeMoverse = false;
+        yield return new WaitForSeconds(tiempo);
+        puedeMoverse = true;
     }
 
     void Update()
     {
-        // 1. LEER INPUT DE MOVIMIENTO (WASD)
-        inputHorizontal = Input.GetAxisRaw("Horizontal");
-        inputVertical = Input.GetAxisRaw("Vertical");
+        if (!puedeMoverse) return;
 
-        inputSubirBajar = 0f;
-        if (Input.GetKey(KeyCode.Space)) inputSubirBajar = 1f;
-        else if (Input.GetKey(KeyCode.LeftShift)) inputSubirBajar = -1f;
-
-        // 2. LEER INPUT DE CÁMARA (Mouse) Y ENVIARLO AL SCRIPT CamaraGTA
+        // Leer Mouse para la cámara
         if (scriptCamara != null)
         {
-            float mouseX = Input.GetAxis("Mouse X") * sensibilidadMouse;
-            float mouseY = Input.GetAxis("Mouse Y") * sensibilidadMouse;
-
-            // Aquí es donde ocurre la conexión:
-            scriptCamara.RecibirInput(new Vector2(mouseX, mouseY));
+            float mX = Input.GetAxis("Mouse X");
+            float mY = Input.GetAxis("Mouse Y");
+            scriptCamara.RecibirInput(new Vector2(mX, mY));
         }
+
+        // Leer Teclado
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+        float subirBajar = 0;
+        if (Input.GetKey(KeyCode.Space)) subirBajar = 1;
+        if (Input.GetKey(KeyCode.LeftShift)) subirBajar = -1;
+
+        MoverGoku(new Vector2(h, v), subirBajar);
     }
 
-    void FixedUpdate()
+    void MoverGoku(Vector2 input, float vertical)
     {
-        if (camaraPrincipal == null) return;
+        if (scriptCamara == null) return;
 
-        Vector3 camFrontal = camaraPrincipal.forward;
-        Vector3 camDerecha = camaraPrincipal.right;
+        // Direcciones relativas a la cámara
+        Vector3 fwd = scriptCamara.transform.forward;
+        Vector3 right = scriptCamara.transform.right;
+        fwd.y = 0; right.y = 0;
+        fwd.Normalize(); right.Normalize();
 
-        camFrontal.y = 0f; camFrontal.Normalize();
-        camDerecha.y = 0f; camDerecha.Normalize();
+        Vector3 dir = (fwd * input.y + right * input.x).normalized;
 
-        Vector3 direccionMovimiento = (camFrontal * inputVertical) + (camDerecha * inputHorizontal);
-        Vector3 velocidadFinal = direccionMovimiento.normalized * velocidadVuelo;
-        velocidadFinal.y += inputSubirBajar * velocidadVerticalPura;
+        // Movimiento usando Rigidbody (Es más seguro para colisiones)
+        // Si prefieres el estilo de tu equipo, cambia esto por: transform.position += ...
+        Vector3 velHorizontal = dir * moveSpeed;
+        Vector3 velVertical = Vector3.up * (vertical * verticalSpeed);
 
-        rb.MovePosition(rb.position + velocidadFinal * Time.fixedDeltaTime);
+        rb.linearVelocity = velHorizontal + velVertical;
 
-        if (direccionMovimiento.magnitude > 0.1f)
+        // Rotación
+        if (dir != Vector3.zero)
         {
-            Quaternion nuevaRotacion = Quaternion.LookRotation(direccionMovimiento);
-            transform.rotation = Quaternion.Slerp(transform.rotation, nuevaRotacion, suavizadoGiro * Time.fixedDeltaTime);
+            Quaternion rot = Quaternion.LookRotation(dir);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rot, rotationSpeed * Time.deltaTime);
         }
     }
 }
