@@ -2,23 +2,23 @@ using UnityEngine;
 
 public class LevelIntroManager : MonoBehaviour
 {
-    [Header("--- Configuración ---")]
-    public AudioSource musicaDelNivel;   // Arrastra aquí el objeto que tiene la música de fondo
-    public GameObject panelDialogo;      // El objeto visual del diálogo (opcional, por si quieres asegurarte que inicie prendido)
+    [Header("--- Configuraciï¿½n ---")]
+    public AudioSource musicaDelNivel;   // Arrastra aquï¿½ el objeto que tiene la mï¿½sica de fondo
+    public GameObject panelDialogo;      // El objeto visual del diï¿½logo (opcional, por si quieres asegurarte que inicie prendido)
 
     void Start()
     {
         // 1. CONGELAR EL TIEMPO AL INICIAR
-        // Esto detiene físicas, animaciones y scripts dependientes del tiempo.
+        // Esto detiene fï¿½sicas, animaciones y scripts dependientes del tiempo.
         Time.timeScale = 0f;
 
-        // 2. PAUSAR MÚSICA (Para que empiece con la acción)
+        // 2. PAUSAR Mï¿½SICA (Para que empiece con la acciï¿½n)
         if (musicaDelNivel != null)
         {
             musicaDelNivel.Pause();
         }
 
-        // 3. ASEGURAR QUE EL DIÁLOGO SE VEA
+        // 3. ASEGURAR QUE EL DIï¿½LOGO SE VEA
         if (panelDialogo != null)
         {
             panelDialogo.SetActive(true);
@@ -27,7 +27,7 @@ public class LevelIntroManager : MonoBehaviour
         Debug.Log(">>> JUEGO PAUSADO: Esperando lectura de instrucciones <<<");
     }
 
-    // ESTA FUNCIÓN ES LA QUE LLAMARÁ TU SISTEMA DE DIÁLOGO AL TERMINAR
+    // ESTA FUNCIï¿½N ES LA QUE LLAMARï¿½ TU SISTEMA DE DIï¿½LOGO AL TERMINAR
     public void ComenzarNivel()
     {
         Debug.Log(">>> EL NIVEL HA COMENZADO <<<");
@@ -35,7 +35,7 @@ public class LevelIntroManager : MonoBehaviour
         // 1. DESCONGELAR EL TIEMPO
         Time.timeScale = 1f;
 
-        // 2. ARRANCAR LA MÚSICA
+        // 2. ARRANCAR LA Mï¿½SICA
         if (musicaDelNivel != null)
         {
             musicaDelNivel.Play();

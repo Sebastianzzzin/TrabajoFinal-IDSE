@@ -4182,7 +4182,7 @@ MonoBehaviour:
   caraPaikuhan: {fileID: 929352515, guid: 7dde6447def53e34996ce0dbdc01af61, type: 3}
   dialogoIntro:
   - "Eh llamado a Goku hace mucho, \xBFPor que tarda tanto en llegar?"
-  - Se que hoy el clima es terrible pero no deberia ser problema para Goku
+  - Aunque con estas nuves toxicas que aparecieron por todo el mundo debe tener cuidado
   dialogoFinal:
   - Goku que bueno que llegaste
   - "Algo extra\xF1o esta pasando en la tierra, necesito que lo investigues."
