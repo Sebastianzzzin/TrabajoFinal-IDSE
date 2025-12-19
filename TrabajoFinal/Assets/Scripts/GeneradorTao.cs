@@ -8,7 +8,6 @@ public class GeneradorTao : MonoBehaviour
     public Transform gokuTransform;
 
     [Header("Posición en Cámara")]
-    // CAMBIO AQUÍ: Bajamos el valor a 0.5 para que aparezca pegado al borde derecho
     [Tooltip("Distancia desde el borde derecho. 0 es el borde exacto. 0.5 es un poco adentro.")]
     public float margenDesdeBorde = 0.5f;
 
@@ -16,6 +15,7 @@ public class GeneradorTao : MonoBehaviour
     public float offsetAltura = 0f;
 
     [Header("Tiempos")]
+    public float tiempoEsperaInicial = 10f; // <--- NUEVO: Espera antes de empezar el ataque
     public float tiempoMinimo = 2f;
     public float tiempoMaximo = 5f;
 
@@ -31,20 +31,25 @@ public class GeneradorTao : MonoBehaviour
 
     IEnumerator RutinaDeGeneracion()
     {
+        // 1. ESPERA INICIAL (Lectura de instrucciones)
+        yield return new WaitForSeconds(tiempoEsperaInicial);
+
+        // 2. BUCLE INFINITO DE ATAQUE
         while (true)
         {
+            // Espera aleatoria entre cada Tao
             float espera = Random.Range(tiempoMinimo, tiempoMaximo);
             yield return new WaitForSeconds(espera);
 
             Camera cam = Camera.main;
 
-            // 1. Calculamos el borde derecho exacto de la pantalla
+            // Calculamos el borde derecho exacto de la pantalla
             Vector3 bordeDerechoCamara = cam.ViewportToWorldPoint(new Vector3(1, 0.5f, 10));
 
-            // 2. Posición X: Borde derecho MENOS el margen pequeño
+            // Posición X: Borde derecho MENOS el margen pequeño
             float spawnX = bordeDerechoCamara.x - margenDesdeBorde;
 
-            // 3. Posición Y: La altura de Goku
+            // Posición Y: La altura de Goku
             float spawnY = gokuTransform.position.y + offsetAltura;
 
             Vector3 posicionSpawn = new Vector3(spawnX, spawnY, 0);
