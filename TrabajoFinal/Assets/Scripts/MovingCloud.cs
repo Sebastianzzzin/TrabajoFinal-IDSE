@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MovingCloud : MonoBehaviour
 {
-    public float speed = 1.8f;     // velocidad de oscilación
+    public float speed = 1.8f;     // velocidad de oscilaciï¿½n
     public float moveRange = 1.2f; // rango de movimiento (en X)
     private Vector3 startPos;
 
@@ -21,8 +21,8 @@ public class MovingCloud : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Aquí puedes poner reacción: daño, reiniciar, empujar, etc.
-            Debug.Log("Goku chocado por nube móvil");
+            // Aquï¿½ puedes poner reacciï¿½n: daï¿½o, reiniciar, empujar, etc.
+            Debug.Log("Goku chocado por nube mï¿½vil");
         }
     }
 }

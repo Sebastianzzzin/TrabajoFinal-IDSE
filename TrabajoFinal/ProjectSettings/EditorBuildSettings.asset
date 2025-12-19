@@ -17,6 +17,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Niveles Marco/Janemba.unity
     guid: ed24561405fc91248bf1f02be537ad62
+  - enabled: 1
+    path: Assets/Scenes/Niveles Sebas/Namekusein.unity
+    guid: 9ec9e3e58df9ff844844bd7fd211a919
+  - enabled: 1
+    path: Assets/Scenes/Niveles Sebas/Templo Kamisama.unity
+    guid: 0589bc80fa5a68244b9f2921b9492a37
+  - enabled: 1
+    path: Assets/Scenes/niveles Kevin/namek destruido.unity
+    guid: 3cf12bbc43d81eb4ca86c719288bc7c5
+  - enabled: 1
+    path: Assets/Scenes/niveles Kevin/espacio freezer.unity
+    guid: e8181216233b1924bb699351581ce1e9
+  - enabled: 1
+    path: Assets/Scenes/Niveles_alan/KameHouse.unity
+    guid: 18e3873c25559fc42ba46b658101991f
+  - enabled: 1
+    path: "Assets/Scenes/Niveles_alan/CiudadDa\xF1ada.unity"
+    guid: 3b7e2553374bbaa45be9e1670f17b386
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

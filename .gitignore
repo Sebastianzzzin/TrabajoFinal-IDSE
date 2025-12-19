@@ -25,3 +25,7 @@ TrabajoFinal/Packages/com.unity.package-manager-ui/
 *.mdb
 *.opendb
 *.VC.db
+.vs/
+*.a
+*.lib
+Assets/MMD4Mecanim/Plugins/*/iOS/
