@@ -126,3 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProyectilLava
   velocidad: 500
   tiempoDeVida: 1000
+  dano: 20
