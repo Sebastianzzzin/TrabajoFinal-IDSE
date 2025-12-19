@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections; // Necesario para Corutinas
+using System.Collections;
 
 public class CamaraGTA : MonoBehaviour
 {
@@ -31,10 +31,8 @@ public class CamaraGTA : MonoBehaviour
     void Start()
     {
         distanciaActual = distancia;
-        Vector3 angulos = transform.eulerAngles;
-        rotacionX = angulos.y;
-        rotacionY = angulos.x;
 
+        // Si no hay target, avisamos
         if (target == null) Debug.LogWarning("¡Falta asignar el Target en la Cámara!");
     }
 
@@ -46,7 +44,6 @@ public class CamaraGTA : MonoBehaviour
     // --- NUEVO: Función para activar la vibración ---
     public void ActivarVibracion(float duracion, float fuerza)
     {
-        StopAllCoroutines(); // Reinicia si ya estaba vibrando
         StartCoroutine(RutinaVibracion(duracion, fuerza));
     }
 
@@ -60,7 +57,6 @@ public class CamaraGTA : MonoBehaviour
             tiempo += Time.deltaTime;
             yield return null;
         }
-        offsetVibracion = Vector3.zero; // Regresa a la normalidad
     }
     // ---------------------------------------------
 
@@ -68,6 +64,7 @@ public class CamaraGTA : MonoBehaviour
     {
         if (!target) return;
 
+        // El input del jugador se suma a la rotación inicial que definimos en Start
         float inputX = inputRecibido.x * sensibilidadX * Time.deltaTime;
         float inputY = inputRecibido.y * sensibilidadY * Time.deltaTime;
 
@@ -75,11 +72,14 @@ public class CamaraGTA : MonoBehaviour
         rotacionY -= inputY; 
         rotacionY = Mathf.Clamp(rotacionY, limiteMinY, limiteMaxY);
 
+        // Aquí se crea la rotación final
         Quaternion rotacion = Quaternion.Euler(rotacionY, rotacionX, 0);
+
         Vector3 posicionDeseada = rotacion * new Vector3(0.0f, 0.0f, -distancia) + target.position;
         Vector3 direccionHaciaCamara = posicionDeseada - target.position;
         
         RaycastHit hit;
+        // Se usa la SphereCast para detectar paredes
         if (Physics.SphereCast(target.position, 0.2f, direccionHaciaCamara.normalized, out hit, distancia, capasDeColision))
         {
             distanciaActual = hit.distance;
