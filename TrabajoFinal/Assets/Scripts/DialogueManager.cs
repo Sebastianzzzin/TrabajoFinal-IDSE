@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
-    private System.Action alTerminarDialogo;
+    private System.Action alTerminarDialogo; 
     [Header("--- CONTENEDORES ---")]
     public GameObject messageContainer;
     public GameObject interactionPrompt;
@@ -144,7 +144,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         Debug.Log(">>> Se ejecutó CerrarDialogo()");
-        if (alTerminarDialogo != null)
+         if (alTerminarDialogo != null)
         {
             alTerminarDialogo.Invoke(); // Ejecutar la acción pendiente
             alTerminarDialogo = null;   // Limpiar para la próxima
@@ -162,8 +162,8 @@ public class DialogueManager : MonoBehaviour
 
         // 3. Llenamos datos visuales
         nameText.text = nombre;
-        if (faceImage != null) faceImage.sprite = cara;
-
+        if(faceImage != null) faceImage.sprite = cara;
+        
         currentLines = frases;
         currentLineIndex = 0;
 

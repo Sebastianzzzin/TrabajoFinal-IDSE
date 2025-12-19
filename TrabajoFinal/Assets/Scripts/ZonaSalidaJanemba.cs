@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement; // Necesario para cambiar de escena
 
 public class ZonaSalidaJanemba : MonoBehaviour
 {
+     public JanembaDirector director; // Referencia al director para avisarle
+    private bool yaGanamos = false;
     [Header("Configuración")]
     [Tooltip("Escribe aquí el nombre EXACTO de la escena a la que quieres ir")]
     public string nombreEscenaDestino = "MenuPrincipal"; 
@@ -14,21 +16,18 @@ public class ZonaSalidaJanemba : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // Verificamos que sea el Jugador y que no se haya activado ya
-        if (other.CompareTag("Player") && !yaSeActivo)
+       if (yaGanamos) return;
+
+        if (other.CompareTag("Player"))
         {
-            yaSeActivo = true; // Candado para no activarlo 2 veces
-            Debug.Log("¡Saliendo del nivel!");
-
-            // Si pusiste sonido, lo reproducimos en la posición antes de irnos
-            if (sonidoSalida != null)
+            yaGanamos = true;
+            Debug.Log("¡Goku llegó a la Cúpula!");
+            
+            // Avisamos al director que inicie la cinemática final
+            if (director != null)
             {
-                // PlayClipAtPoint crea un audio temporal que no se destruye al cambiar de escena inmediatamente
-                AudioSource.PlayClipAtPoint(sonidoSalida, transform.position);
+                director.LlegadaALaMeta();
             }
-
-            // Cambiamos de escena
-            SceneManager.LoadScene(nombreEscenaDestino);
         }
     }
 }
